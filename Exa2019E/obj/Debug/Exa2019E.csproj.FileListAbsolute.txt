@@ -1,5 +1,0 @@
-C:\Users\katan\RiderProjects\AtCoder\Exa2019E\bin\Debug\Exa2019E.exe
-C:\Users\katan\RiderProjects\AtCoder\Exa2019E\bin\Debug\Exa2019E.pdb
-C:\Users\katan\RiderProjects\AtCoder\Exa2019E\obj\Debug\Exa2019E.csprojResolveAssemblyReference.cache
-C:\Users\katan\RiderProjects\AtCoder\Exa2019E\obj\Debug\Exa2019E.exe
-C:\Users\katan\RiderProjects\AtCoder\Exa2019E\obj\Debug\Exa2019E.pdb
