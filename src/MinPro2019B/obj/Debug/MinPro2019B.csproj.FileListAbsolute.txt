@@ -1,5 +1,0 @@
-C:\Users\katan\RiderProjects\AtCoder\MinPro2019B\bin\Debug\MinPro2019B.exe
-C:\Users\katan\RiderProjects\AtCoder\MinPro2019B\bin\Debug\MinPro2019B.pdb
-C:\Users\katan\RiderProjects\AtCoder\MinPro2019B\obj\Debug\MinPro2019B.exe
-C:\Users\katan\RiderProjects\AtCoder\MinPro2019B\obj\Debug\MinPro2019B.pdb
-C:\Users\katan\RiderProjects\AtCoder\MinPro2019B\obj\Debug\MinPro2019B.csproj.CoreCompileInputs.cache

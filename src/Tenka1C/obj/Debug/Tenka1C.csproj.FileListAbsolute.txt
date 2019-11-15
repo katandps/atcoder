@@ -1,5 +1,0 @@
-C:\Users\katan\RiderProjects\AtCoder\Tenka1C\bin\Debug\Tenka1C.exe
-C:\Users\katan\RiderProjects\AtCoder\Tenka1C\bin\Debug\Tenka1C.pdb
-C:\Users\katan\RiderProjects\AtCoder\Tenka1C\obj\Debug\Tenka1C.exe
-C:\Users\katan\RiderProjects\AtCoder\Tenka1C\obj\Debug\Tenka1C.pdb
-C:\Users\katan\RiderProjects\AtCoder\Tenka1C\obj\Debug\Tenka1C.csproj.CoreCompileInputs.cache

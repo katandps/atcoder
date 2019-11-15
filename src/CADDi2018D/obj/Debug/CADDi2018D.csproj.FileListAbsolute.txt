@@ -1,5 +1,0 @@
-C:\Users\katan\RiderProjects\AtCoder\CADDi2018D\bin\Debug\CADDi2018D.exe
-C:\Users\katan\RiderProjects\AtCoder\CADDi2018D\bin\Debug\CADDi2018D.pdb
-C:\Users\katan\RiderProjects\AtCoder\CADDi2018D\obj\Debug\CADDi2018D.exe
-C:\Users\katan\RiderProjects\AtCoder\CADDi2018D\obj\Debug\CADDi2018D.pdb
-C:\Users\katan\RiderProjects\AtCoder\CADDi2018D\obj\Debug\CADDi2018D.csproj.CoreCompileInputs.cache

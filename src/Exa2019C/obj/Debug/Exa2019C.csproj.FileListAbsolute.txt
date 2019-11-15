@@ -1,5 +1,0 @@
-C:\Users\katan\RiderProjects\AtCoder\Exa2019C\bin\Debug\Exa2019C.exe
-C:\Users\katan\RiderProjects\AtCoder\Exa2019C\bin\Debug\Exa2019C.pdb
-C:\Users\katan\RiderProjects\AtCoder\Exa2019C\obj\Debug\Exa2019C.exe
-C:\Users\katan\RiderProjects\AtCoder\Exa2019C\obj\Debug\Exa2019C.pdb
-C:\Users\katan\RiderProjects\AtCoder\Exa2019C\obj\Debug\Exa2019C.csproj.CoreCompileInputs.cache

@@ -1,5 +1,0 @@
-C:\Users\katan\RiderProjects\AtCoder\ABC104A\bin\Debug\ABC104A.exe
-C:\Users\katan\RiderProjects\AtCoder\ABC104A\bin\Debug\ABC104A.pdb
-C:\Users\katan\RiderProjects\AtCoder\ABC104A\obj\Debug\ABC104A.exe
-C:\Users\katan\RiderProjects\AtCoder\ABC104A\obj\Debug\ABC104A.pdb
-C:\Users\katan\RiderProjects\AtCoder\ABC104A\obj\Debug\ABC104A.csproj.CoreCompileInputs.cache

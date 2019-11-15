@@ -1,5 +1,0 @@
-C:\Users\katan\RiderProjects\AtCoder\ABC125D\bin\Debug\ABC125D.exe
-C:\Users\katan\RiderProjects\AtCoder\ABC125D\bin\Debug\ABC125D.pdb
-C:\Users\katan\RiderProjects\AtCoder\ABC125D\obj\Debug\ABC125D.exe
-C:\Users\katan\RiderProjects\AtCoder\ABC125D\obj\Debug\ABC125D.pdb
-C:\Users\katan\RiderProjects\AtCoder\ABC125D\obj\Debug\ABC125D.csproj.CoreCompileInputs.cache
