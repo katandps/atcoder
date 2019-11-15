@@ -1,0 +1,11 @@
+C:\Users\katan\RiderProjects\AtCoder\AGC033B\bin\Debug\netcoreapp2.2\AGC033B.deps.json
+C:\Users\katan\RiderProjects\AtCoder\AGC033B\bin\Debug\netcoreapp2.2\AGC033B.runtimeconfig.json
+C:\Users\katan\RiderProjects\AtCoder\AGC033B\bin\Debug\netcoreapp2.2\AGC033B.runtimeconfig.dev.json
+C:\Users\katan\RiderProjects\AtCoder\AGC033B\bin\Debug\netcoreapp2.2\AGC033B.dll
+C:\Users\katan\RiderProjects\AtCoder\AGC033B\bin\Debug\netcoreapp2.2\AGC033B.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC033B\obj\Debug\netcoreapp2.2\AGC033B.csproj.CoreCompileInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\AGC033B\obj\Debug\netcoreapp2.2\AGC033B.AssemblyInfoInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\AGC033B\obj\Debug\netcoreapp2.2\AGC033B.AssemblyInfo.cs
+C:\Users\katan\RiderProjects\AtCoder\AGC033B\obj\Debug\netcoreapp2.2\AGC033B.dll
+C:\Users\katan\RiderProjects\AtCoder\AGC033B\obj\Debug\netcoreapp2.2\AGC033B.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC033B\obj\Debug\netcoreapp2.2\AGC033B.csprojAssemblyReference.cache

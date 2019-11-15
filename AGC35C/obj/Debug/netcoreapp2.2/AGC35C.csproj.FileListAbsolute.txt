@@ -1,0 +1,11 @@
+C:\Users\katan\RiderProjects\AtCoder\AGC35C\bin\Debug\netcoreapp2.2\AGC35C.deps.json
+C:\Users\katan\RiderProjects\AtCoder\AGC35C\bin\Debug\netcoreapp2.2\AGC35C.runtimeconfig.json
+C:\Users\katan\RiderProjects\AtCoder\AGC35C\bin\Debug\netcoreapp2.2\AGC35C.runtimeconfig.dev.json
+C:\Users\katan\RiderProjects\AtCoder\AGC35C\bin\Debug\netcoreapp2.2\AGC35C.dll
+C:\Users\katan\RiderProjects\AtCoder\AGC35C\bin\Debug\netcoreapp2.2\AGC35C.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC35C\obj\Debug\netcoreapp2.2\AGC35C.csprojAssemblyReference.cache
+C:\Users\katan\RiderProjects\AtCoder\AGC35C\obj\Debug\netcoreapp2.2\AGC35C.csproj.CoreCompileInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\AGC35C\obj\Debug\netcoreapp2.2\AGC35C.AssemblyInfoInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\AGC35C\obj\Debug\netcoreapp2.2\AGC35C.AssemblyInfo.cs
+C:\Users\katan\RiderProjects\AtCoder\AGC35C\obj\Debug\netcoreapp2.2\AGC35C.dll
+C:\Users\katan\RiderProjects\AtCoder\AGC35C\obj\Debug\netcoreapp2.2\AGC35C.pdb

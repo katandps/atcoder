@@ -1,0 +1,10 @@
+C:\Users\yamasho\RiderProjects\AtCoder\AGC026C\bin\Debug\AGC026C.exe
+C:\Users\yamasho\RiderProjects\AtCoder\AGC026C\bin\Debug\AGC026C.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\AGC026C\obj\Debug\AGC026C.csprojResolveAssemblyReference.cache
+C:\Users\yamasho\RiderProjects\AtCoder\AGC026C\obj\Debug\AGC026C.exe
+C:\Users\yamasho\RiderProjects\AtCoder\AGC026C\obj\Debug\AGC026C.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC026C\bin\Debug\AGC026C.exe
+C:\Users\katan\RiderProjects\AtCoder\AGC026C\bin\Debug\AGC026C.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC026C\obj\Debug\AGC026C.exe
+C:\Users\katan\RiderProjects\AtCoder\AGC026C\obj\Debug\AGC026C.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC026C\obj\Debug\AGC026C.csproj.CoreCompileInputs.cache

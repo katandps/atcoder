@@ -1,0 +1,7 @@
+C:\Users\yamasho\RiderProjects\AtCoder\ABC054C\obj\Debug\ABC054C.csprojResolveAssemblyReference.cache
+C:\Users\katan\RiderProjects\AtCoder\ABC054C\bin\Debug\ABC054C.exe
+C:\Users\katan\RiderProjects\AtCoder\ABC054C\bin\Debug\ABC054C.pdb
+C:\Users\katan\RiderProjects\AtCoder\ABC054C\obj\Debug\ABC054C.exe
+C:\Users\katan\RiderProjects\AtCoder\ABC054C\obj\Debug\ABC054C.pdb
+C:\Users\katan\RiderProjects\AtCoder\ABC054C\obj\Debug\ABC054C.csprojAssemblyReference.cache
+C:\Users\katan\RiderProjects\AtCoder\ABC054C\obj\Debug\ABC054C.csproj.CoreCompileInputs.cache

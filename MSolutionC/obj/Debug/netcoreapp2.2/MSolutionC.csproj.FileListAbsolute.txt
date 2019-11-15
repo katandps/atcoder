@@ -1,0 +1,11 @@
+C:\Users\katan\RiderProjects\AtCoder\MSolutionC\bin\Debug\netcoreapp2.2\MSolutionC.deps.json
+C:\Users\katan\RiderProjects\AtCoder\MSolutionC\bin\Debug\netcoreapp2.2\MSolutionC.runtimeconfig.json
+C:\Users\katan\RiderProjects\AtCoder\MSolutionC\bin\Debug\netcoreapp2.2\MSolutionC.runtimeconfig.dev.json
+C:\Users\katan\RiderProjects\AtCoder\MSolutionC\bin\Debug\netcoreapp2.2\MSolutionC.dll
+C:\Users\katan\RiderProjects\AtCoder\MSolutionC\bin\Debug\netcoreapp2.2\MSolutionC.pdb
+C:\Users\katan\RiderProjects\AtCoder\MSolutionC\obj\Debug\netcoreapp2.2\MSolutionC.csprojAssemblyReference.cache
+C:\Users\katan\RiderProjects\AtCoder\MSolutionC\obj\Debug\netcoreapp2.2\MSolutionC.csproj.CoreCompileInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\MSolutionC\obj\Debug\netcoreapp2.2\MSolutionC.AssemblyInfoInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\MSolutionC\obj\Debug\netcoreapp2.2\MSolutionC.AssemblyInfo.cs
+C:\Users\katan\RiderProjects\AtCoder\MSolutionC\obj\Debug\netcoreapp2.2\MSolutionC.dll
+C:\Users\katan\RiderProjects\AtCoder\MSolutionC\obj\Debug\netcoreapp2.2\MSolutionC.pdb

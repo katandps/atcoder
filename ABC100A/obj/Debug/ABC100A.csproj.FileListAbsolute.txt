@@ -1,0 +1,10 @@
+C:\Users\yamasho\RiderProjects\AtCoder\ABC100A\bin\Debug\ABC100A.exe
+C:\Users\yamasho\RiderProjects\AtCoder\ABC100A\bin\Debug\ABC100A.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\ABC100A\obj\Debug\ABC100A.csprojResolveAssemblyReference.cache
+C:\Users\yamasho\RiderProjects\AtCoder\ABC100A\obj\Debug\ABC100A.exe
+C:\Users\yamasho\RiderProjects\AtCoder\ABC100A\obj\Debug\ABC100A.pdb
+C:\Users\katan\RiderProjects\AtCoder\ABC100A\bin\Debug\ABC100A.exe
+C:\Users\katan\RiderProjects\AtCoder\ABC100A\bin\Debug\ABC100A.pdb
+C:\Users\katan\RiderProjects\AtCoder\ABC100A\obj\Debug\ABC100A.exe
+C:\Users\katan\RiderProjects\AtCoder\ABC100A\obj\Debug\ABC100A.pdb
+C:\Users\katan\RiderProjects\AtCoder\ABC100A\obj\Debug\ABC100A.csproj.CoreCompileInputs.cache

@@ -1,0 +1,11 @@
+C:\Users\yamasho\RiderProjects\AtCoder\ABC099B\bin\Debug\ABC099B.exe
+C:\Users\yamasho\RiderProjects\AtCoder\ABC099B\bin\Debug\ABC099B.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\ABC099B\obj\Debug\ABC099B.csprojResolveAssemblyReference.cache
+C:\Users\yamasho\RiderProjects\AtCoder\ABC099B\obj\Debug\ABC099B.exe
+C:\Users\yamasho\RiderProjects\AtCoder\ABC099B\obj\Debug\ABC099B.pdb
+C:\Users\katan\RiderProjects\AtCoder\ABC099B\bin\Debug\ABC099B.exe
+C:\Users\katan\RiderProjects\AtCoder\ABC099B\bin\Debug\ABC099B.pdb
+C:\Users\katan\RiderProjects\AtCoder\ABC099B\obj\Debug\ABC099B.exe
+C:\Users\katan\RiderProjects\AtCoder\ABC099B\obj\Debug\ABC099B.pdb
+C:\Users\katan\RiderProjects\AtCoder\ABC099B\obj\Debug\ABC099B.csprojAssemblyReference.cache
+C:\Users\katan\RiderProjects\AtCoder\ABC099B\obj\Debug\ABC099B.csproj.CoreCompileInputs.cache

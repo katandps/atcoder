@@ -1,0 +1,10 @@
+C:\Users\yamasho\RiderProjects\AtCoder\MUJIND\obj\Debug\MUJIND.csprojResolveAssemblyReference.cache
+C:\Users\yamasho\RiderProjects\AtCoder\MUJIND\bin\Debug\MUJIND.exe
+C:\Users\yamasho\RiderProjects\AtCoder\MUJIND\bin\Debug\MUJIND.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\MUJIND\obj\Debug\MUJIND.exe
+C:\Users\yamasho\RiderProjects\AtCoder\MUJIND\obj\Debug\MUJIND.pdb
+C:\Users\katan\RiderProjects\AtCoder\MUJIND\bin\Debug\MUJIND.exe
+C:\Users\katan\RiderProjects\AtCoder\MUJIND\bin\Debug\MUJIND.pdb
+C:\Users\katan\RiderProjects\AtCoder\MUJIND\obj\Debug\MUJIND.exe
+C:\Users\katan\RiderProjects\AtCoder\MUJIND\obj\Debug\MUJIND.pdb
+C:\Users\katan\RiderProjects\AtCoder\MUJIND\obj\Debug\MUJIND.csproj.CoreCompileInputs.cache

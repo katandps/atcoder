@@ -1,0 +1,10 @@
+C:\Users\yamasho\RiderProjects\AtCoder\a\bin\Debug\a.exe
+C:\Users\yamasho\RiderProjects\AtCoder\a\bin\Debug\a.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\a\obj\Debug\a.csprojResolveAssemblyReference.cache
+C:\Users\yamasho\RiderProjects\AtCoder\a\obj\Debug\a.exe
+C:\Users\yamasho\RiderProjects\AtCoder\a\obj\Debug\a.pdb
+C:\Users\katan\RiderProjects\AtCoder\a\bin\Debug\a.exe
+C:\Users\katan\RiderProjects\AtCoder\a\bin\Debug\a.pdb
+C:\Users\katan\RiderProjects\AtCoder\a\obj\Debug\a.exe
+C:\Users\katan\RiderProjects\AtCoder\a\obj\Debug\a.pdb
+C:\Users\katan\RiderProjects\AtCoder\a\obj\Debug\a.csproj.CoreCompileInputs.cache

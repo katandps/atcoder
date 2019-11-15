@@ -1,0 +1,5 @@
+C:\Users\katan\RiderProjects\AtCoder\Tenka1F\bin\Debug\Tenka1F.exe
+C:\Users\katan\RiderProjects\AtCoder\Tenka1F\bin\Debug\Tenka1F.pdb
+C:\Users\katan\RiderProjects\AtCoder\Tenka1F\obj\Debug\Tenka1F.csproj.CoreCompileInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\Tenka1F\obj\Debug\Tenka1F.exe
+C:\Users\katan\RiderProjects\AtCoder\Tenka1F\obj\Debug\Tenka1F.pdb

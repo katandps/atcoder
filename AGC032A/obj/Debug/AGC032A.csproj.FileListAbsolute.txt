@@ -1,0 +1,5 @@
+C:\Users\katan\RiderProjects\AtCoder\AGC032A\bin\Debug\AGC032A.exe
+C:\Users\katan\RiderProjects\AtCoder\AGC032A\bin\Debug\AGC032A.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC032A\obj\Debug\AGC032A.exe
+C:\Users\katan\RiderProjects\AtCoder\AGC032A\obj\Debug\AGC032A.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC032A\obj\Debug\AGC032A.csproj.CoreCompileInputs.cache

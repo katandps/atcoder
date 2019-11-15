@@ -1,0 +1,10 @@
+C:\Users\yamasho\RiderProjects\AtCoder\ARC100-C\bin\Debug\ARC100_C.exe
+C:\Users\yamasho\RiderProjects\AtCoder\ARC100-C\bin\Debug\ARC100_C.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\ARC100-C\obj\Debug\ARC100-C.csprojResolveAssemblyReference.cache
+C:\Users\yamasho\RiderProjects\AtCoder\ARC100-C\obj\Debug\ARC100_C.exe
+C:\Users\yamasho\RiderProjects\AtCoder\ARC100-C\obj\Debug\ARC100_C.pdb
+C:\Users\katan\RiderProjects\AtCoder\ARC100-C\bin\Debug\ARC100_C.exe
+C:\Users\katan\RiderProjects\AtCoder\ARC100-C\bin\Debug\ARC100_C.pdb
+C:\Users\katan\RiderProjects\AtCoder\ARC100-C\obj\Debug\ARC100_C.exe
+C:\Users\katan\RiderProjects\AtCoder\ARC100-C\obj\Debug\ARC100_C.pdb
+C:\Users\katan\RiderProjects\AtCoder\ARC100-C\obj\Debug\ARC100-C.csproj.CoreCompileInputs.cache

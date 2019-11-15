@@ -1,0 +1,10 @@
+C:\Users\yamasho\RiderProjects\AtCoder\MUJINC\bin\Debug\MUJINC.exe
+C:\Users\yamasho\RiderProjects\AtCoder\MUJINC\bin\Debug\MUJINC.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\MUJINC\obj\Debug\MUJINC.csprojResolveAssemblyReference.cache
+C:\Users\yamasho\RiderProjects\AtCoder\MUJINC\obj\Debug\MUJINC.exe
+C:\Users\yamasho\RiderProjects\AtCoder\MUJINC\obj\Debug\MUJINC.pdb
+C:\Users\katan\RiderProjects\AtCoder\MUJINC\bin\Debug\MUJINC.exe
+C:\Users\katan\RiderProjects\AtCoder\MUJINC\bin\Debug\MUJINC.pdb
+C:\Users\katan\RiderProjects\AtCoder\MUJINC\obj\Debug\MUJINC.exe
+C:\Users\katan\RiderProjects\AtCoder\MUJINC\obj\Debug\MUJINC.pdb
+C:\Users\katan\RiderProjects\AtCoder\MUJINC\obj\Debug\MUJINC.csproj.CoreCompileInputs.cache

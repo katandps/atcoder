@@ -1,0 +1,10 @@
+C:\Users\yamasho\RiderProjects\AtCoder\AGC10-A\bin\Debug\AGC10_A.exe
+C:\Users\yamasho\RiderProjects\AtCoder\AGC10-A\bin\Debug\AGC10_A.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\AGC10-A\obj\Debug\AGC10-A.csprojResolveAssemblyReference.cache
+C:\Users\yamasho\RiderProjects\AtCoder\AGC10-A\obj\Debug\AGC10_A.exe
+C:\Users\yamasho\RiderProjects\AtCoder\AGC10-A\obj\Debug\AGC10_A.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC10-A\bin\Debug\AGC10_A.exe
+C:\Users\katan\RiderProjects\AtCoder\AGC10-A\bin\Debug\AGC10_A.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC10-A\obj\Debug\AGC10_A.exe
+C:\Users\katan\RiderProjects\AtCoder\AGC10-A\obj\Debug\AGC10_A.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC10-A\obj\Debug\AGC10-A.csproj.CoreCompileInputs.cache

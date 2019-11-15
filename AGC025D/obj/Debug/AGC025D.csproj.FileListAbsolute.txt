@@ -1,0 +1,10 @@
+C:\Users\yamasho\RiderProjects\AtCoder\AGC025D\bin\Debug\AGC025D.exe
+C:\Users\yamasho\RiderProjects\AtCoder\AGC025D\bin\Debug\AGC025D.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\AGC025D\obj\Debug\AGC025D.csprojResolveAssemblyReference.cache
+C:\Users\yamasho\RiderProjects\AtCoder\AGC025D\obj\Debug\AGC025D.exe
+C:\Users\yamasho\RiderProjects\AtCoder\AGC025D\obj\Debug\AGC025D.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC025D\bin\Debug\AGC025D.exe
+C:\Users\katan\RiderProjects\AtCoder\AGC025D\bin\Debug\AGC025D.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC025D\obj\Debug\AGC025D.exe
+C:\Users\katan\RiderProjects\AtCoder\AGC025D\obj\Debug\AGC025D.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC025D\obj\Debug\AGC025D.csproj.CoreCompileInputs.cache

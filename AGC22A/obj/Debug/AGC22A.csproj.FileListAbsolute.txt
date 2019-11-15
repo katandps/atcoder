@@ -1,0 +1,11 @@
+C:\Users\yamasho\RiderProjects\AtCoder\AGC22A\bin\Debug\AGC22A.exe
+C:\Users\yamasho\RiderProjects\AtCoder\AGC22A\bin\Debug\AGC22A.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\AGC22A\obj\Debug\AGC22A.csprojResolveAssemblyReference.cache
+C:\Users\yamasho\RiderProjects\AtCoder\AGC22A\obj\Debug\AGC22A.exe
+C:\Users\yamasho\RiderProjects\AtCoder\AGC22A\obj\Debug\AGC22A.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC22A\bin\Debug\AGC22A.exe
+C:\Users\katan\RiderProjects\AtCoder\AGC22A\bin\Debug\AGC22A.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC22A\obj\Debug\AGC22A.exe
+C:\Users\katan\RiderProjects\AtCoder\AGC22A\obj\Debug\AGC22A.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC22A\obj\Debug\AGC22A.csprojAssemblyReference.cache
+C:\Users\katan\RiderProjects\AtCoder\AGC22A\obj\Debug\AGC22A.csproj.CoreCompileInputs.cache

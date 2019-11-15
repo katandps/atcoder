@@ -1,0 +1,5 @@
+C:\Users\katan\RiderProjects\AtCoder\ARC103A\bin\Debug\ARC103A.exe
+C:\Users\katan\RiderProjects\AtCoder\ARC103A\bin\Debug\ARC103A.pdb
+C:\Users\katan\RiderProjects\AtCoder\ARC103A\obj\Debug\ARC103A.exe
+C:\Users\katan\RiderProjects\AtCoder\ARC103A\obj\Debug\ARC103A.pdb
+C:\Users\katan\RiderProjects\AtCoder\ARC103A\obj\Debug\ARC103A.csproj.CoreCompileInputs.cache

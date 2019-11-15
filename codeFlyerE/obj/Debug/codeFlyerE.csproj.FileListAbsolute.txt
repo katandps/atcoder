@@ -1,0 +1,11 @@
+C:\Users\yamasho\RiderProjects\AtCoder\codeFlyerE\bin\Debug\codeFlyerE.exe
+C:\Users\yamasho\RiderProjects\AtCoder\codeFlyerE\bin\Debug\codeFlyerE.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\codeFlyerE\obj\Debug\codeFlyerE.csprojResolveAssemblyReference.cache
+C:\Users\yamasho\RiderProjects\AtCoder\codeFlyerE\obj\Debug\codeFlyerE.exe
+C:\Users\yamasho\RiderProjects\AtCoder\codeFlyerE\obj\Debug\codeFlyerE.pdb
+C:\Users\katan\RiderProjects\AtCoder\codeFlyerE\bin\Debug\codeFlyerE.exe
+C:\Users\katan\RiderProjects\AtCoder\codeFlyerE\bin\Debug\codeFlyerE.pdb
+C:\Users\katan\RiderProjects\AtCoder\codeFlyerE\obj\Debug\codeFlyerE.exe
+C:\Users\katan\RiderProjects\AtCoder\codeFlyerE\obj\Debug\codeFlyerE.pdb
+C:\Users\katan\RiderProjects\AtCoder\codeFlyerE\obj\Debug\codeFlyerE.csprojAssemblyReference.cache
+C:\Users\katan\RiderProjects\AtCoder\codeFlyerE\obj\Debug\codeFlyerE.csproj.CoreCompileInputs.cache

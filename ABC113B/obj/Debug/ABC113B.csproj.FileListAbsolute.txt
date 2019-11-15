@@ -1,0 +1,5 @@
+C:\Users\katan\RiderProjects\AtCoder\ABC113B\bin\Debug\ABC113B.exe
+C:\Users\katan\RiderProjects\AtCoder\ABC113B\bin\Debug\ABC113B.pdb
+C:\Users\katan\RiderProjects\AtCoder\ABC113B\obj\Debug\ABC113B.exe
+C:\Users\katan\RiderProjects\AtCoder\ABC113B\obj\Debug\ABC113B.pdb
+C:\Users\katan\RiderProjects\AtCoder\ABC113B\obj\Debug\ABC113B.csproj.CoreCompileInputs.cache

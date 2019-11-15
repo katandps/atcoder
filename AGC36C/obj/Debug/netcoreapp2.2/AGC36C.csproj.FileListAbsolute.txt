@@ -1,0 +1,11 @@
+C:\Users\katan\RiderProjects\AtCoder\AGC36C\bin\Debug\netcoreapp2.2\AGC36C.deps.json
+C:\Users\katan\RiderProjects\AtCoder\AGC36C\bin\Debug\netcoreapp2.2\AGC36C.runtimeconfig.json
+C:\Users\katan\RiderProjects\AtCoder\AGC36C\bin\Debug\netcoreapp2.2\AGC36C.runtimeconfig.dev.json
+C:\Users\katan\RiderProjects\AtCoder\AGC36C\bin\Debug\netcoreapp2.2\AGC36C.dll
+C:\Users\katan\RiderProjects\AtCoder\AGC36C\bin\Debug\netcoreapp2.2\AGC36C.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC36C\obj\Debug\netcoreapp2.2\AGC36C.csprojAssemblyReference.cache
+C:\Users\katan\RiderProjects\AtCoder\AGC36C\obj\Debug\netcoreapp2.2\AGC36C.csproj.CoreCompileInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\AGC36C\obj\Debug\netcoreapp2.2\AGC36C.AssemblyInfoInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\AGC36C\obj\Debug\netcoreapp2.2\AGC36C.AssemblyInfo.cs
+C:\Users\katan\RiderProjects\AtCoder\AGC36C\obj\Debug\netcoreapp2.2\AGC36C.dll
+C:\Users\katan\RiderProjects\AtCoder\AGC36C\obj\Debug\netcoreapp2.2\AGC36C.pdb

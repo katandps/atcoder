@@ -1,0 +1,11 @@
+C:\Users\yamasho\RiderProjects\AtCoder\ABC104B\bin\Debug\ABC104B.exe
+C:\Users\yamasho\RiderProjects\AtCoder\ABC104B\bin\Debug\ABC104B.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\ABC104B\obj\Debug\ABC104B.csprojResolveAssemblyReference.cache
+C:\Users\yamasho\RiderProjects\AtCoder\ABC104B\obj\Debug\ABC104B.exe
+C:\Users\yamasho\RiderProjects\AtCoder\ABC104B\obj\Debug\ABC104B.pdb
+C:\Users\katan\RiderProjects\AtCoder\ABC104B\bin\Debug\ABC104B.exe
+C:\Users\katan\RiderProjects\AtCoder\ABC104B\bin\Debug\ABC104B.pdb
+C:\Users\katan\RiderProjects\AtCoder\ABC104B\obj\Debug\ABC104B.exe
+C:\Users\katan\RiderProjects\AtCoder\ABC104B\obj\Debug\ABC104B.pdb
+C:\Users\katan\RiderProjects\AtCoder\ABC104B\obj\Debug\ABC104B.csproj.CoreCompileInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\ABC104B\obj\Debug\ABC104B.csprojAssemblyReference.cache

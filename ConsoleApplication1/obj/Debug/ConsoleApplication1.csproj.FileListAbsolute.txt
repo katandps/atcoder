@@ -1,0 +1,10 @@
+C:\Users\yamasho\RiderProjects\AtCoder\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\yamasho\RiderProjects\AtCoder\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\Users\yamasho\RiderProjects\AtCoder\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\yamasho\RiderProjects\AtCoder\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\katan\RiderProjects\AtCoder\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\katan\RiderProjects\AtCoder\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\katan\RiderProjects\AtCoder\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\katan\RiderProjects\AtCoder\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\katan\RiderProjects\AtCoder\ConsoleApplication1\obj\Debug\ConsoleApplication1.csproj.CoreCompileInputs.cache

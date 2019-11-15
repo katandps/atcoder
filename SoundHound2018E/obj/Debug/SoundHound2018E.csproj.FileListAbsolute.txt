@@ -1,0 +1,9 @@
+C:\Users\yamasho\RiderProjects\AtCoder\SoundHound2018E\bin\Debug\SoundHound2018E.exe
+C:\Users\yamasho\RiderProjects\AtCoder\SoundHound2018E\bin\Debug\SoundHound2018E.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\SoundHound2018E\obj\Debug\SoundHound2018E.exe
+C:\Users\yamasho\RiderProjects\AtCoder\SoundHound2018E\obj\Debug\SoundHound2018E.pdb
+C:\Users\katan\RiderProjects\AtCoder\SoundHound2018E\bin\Debug\SoundHound2018E.exe
+C:\Users\katan\RiderProjects\AtCoder\SoundHound2018E\bin\Debug\SoundHound2018E.pdb
+C:\Users\katan\RiderProjects\AtCoder\SoundHound2018E\obj\Debug\SoundHound2018E.exe
+C:\Users\katan\RiderProjects\AtCoder\SoundHound2018E\obj\Debug\SoundHound2018E.pdb
+C:\Users\katan\RiderProjects\AtCoder\SoundHound2018E\obj\Debug\SoundHound2018E.csproj.CoreCompileInputs.cache

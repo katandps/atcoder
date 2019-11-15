@@ -1,0 +1,5 @@
+C:\Users\yamasho\RiderProjects\AtCoder\UnionFind\bin\Debug\UnionFind.exe
+C:\Users\yamasho\RiderProjects\AtCoder\UnionFind\bin\Debug\UnionFind.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\UnionFind\obj\Debug\UnionFind.csprojResolveAssemblyReference.cache
+C:\Users\yamasho\RiderProjects\AtCoder\UnionFind\obj\Debug\UnionFind.exe
+C:\Users\yamasho\RiderProjects\AtCoder\UnionFind\obj\Debug\UnionFind.pdb

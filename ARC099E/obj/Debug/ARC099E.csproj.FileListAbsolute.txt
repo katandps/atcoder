@@ -1,0 +1,10 @@
+C:\Users\yamasho\RiderProjects\AtCoder\ARC099E\bin\Debug\ARC099E.exe
+C:\Users\yamasho\RiderProjects\AtCoder\ARC099E\bin\Debug\ARC099E.pdb
+C:\Users\yamasho\RiderProjects\AtCoder\ARC099E\obj\Debug\ARC099E.csprojResolveAssemblyReference.cache
+C:\Users\yamasho\RiderProjects\AtCoder\ARC099E\obj\Debug\ARC099E.exe
+C:\Users\yamasho\RiderProjects\AtCoder\ARC099E\obj\Debug\ARC099E.pdb
+C:\Users\katan\RiderProjects\AtCoder\ARC099E\bin\Debug\ARC099E.exe
+C:\Users\katan\RiderProjects\AtCoder\ARC099E\bin\Debug\ARC099E.pdb
+C:\Users\katan\RiderProjects\AtCoder\ARC099E\obj\Debug\ARC099E.exe
+C:\Users\katan\RiderProjects\AtCoder\ARC099E\obj\Debug\ARC099E.pdb
+C:\Users\katan\RiderProjects\AtCoder\ARC099E\obj\Debug\ARC099E.csproj.CoreCompileInputs.cache

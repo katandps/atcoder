@@ -1,0 +1,6 @@
+C:\Users\katan\RiderProjects\AtCoder\AGC032C\bin\Debug\AGC032C.exe
+C:\Users\katan\RiderProjects\AtCoder\AGC032C\bin\Debug\AGC032C.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC032C\obj\Debug\AGC032C.csprojResolveAssemblyReference.cache
+C:\Users\katan\RiderProjects\AtCoder\AGC032C\obj\Debug\AGC032C.exe
+C:\Users\katan\RiderProjects\AtCoder\AGC032C\obj\Debug\AGC032C.pdb
+C:\Users\katan\RiderProjects\AtCoder\AGC032C\obj\Debug\AGC032C.csproj.CoreCompileInputs.cache

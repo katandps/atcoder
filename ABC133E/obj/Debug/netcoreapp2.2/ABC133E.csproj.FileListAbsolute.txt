@@ -1,0 +1,11 @@
+C:\Users\katan\RiderProjects\AtCoder\ABC133E\bin\Debug\netcoreapp2.2\ABC133E.deps.json
+C:\Users\katan\RiderProjects\AtCoder\ABC133E\bin\Debug\netcoreapp2.2\ABC133E.runtimeconfig.json
+C:\Users\katan\RiderProjects\AtCoder\ABC133E\bin\Debug\netcoreapp2.2\ABC133E.runtimeconfig.dev.json
+C:\Users\katan\RiderProjects\AtCoder\ABC133E\bin\Debug\netcoreapp2.2\ABC133E.dll
+C:\Users\katan\RiderProjects\AtCoder\ABC133E\bin\Debug\netcoreapp2.2\ABC133E.pdb
+C:\Users\katan\RiderProjects\AtCoder\ABC133E\obj\Debug\netcoreapp2.2\ABC133E.csprojAssemblyReference.cache
+C:\Users\katan\RiderProjects\AtCoder\ABC133E\obj\Debug\netcoreapp2.2\ABC133E.csproj.CoreCompileInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\ABC133E\obj\Debug\netcoreapp2.2\ABC133E.AssemblyInfoInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\ABC133E\obj\Debug\netcoreapp2.2\ABC133E.AssemblyInfo.cs
+C:\Users\katan\RiderProjects\AtCoder\ABC133E\obj\Debug\netcoreapp2.2\ABC133E.dll
+C:\Users\katan\RiderProjects\AtCoder\ABC133E\obj\Debug\netcoreapp2.2\ABC133E.pdb

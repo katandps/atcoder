@@ -1,0 +1,11 @@
+C:\Users\katan\RiderProjects\AtCoder\ProblemA\bin\Debug\netcoreapp2.2\ProblemA.deps.json
+C:\Users\katan\RiderProjects\AtCoder\ProblemA\bin\Debug\netcoreapp2.2\ProblemA.runtimeconfig.json
+C:\Users\katan\RiderProjects\AtCoder\ProblemA\bin\Debug\netcoreapp2.2\ProblemA.runtimeconfig.dev.json
+C:\Users\katan\RiderProjects\AtCoder\ProblemA\bin\Debug\netcoreapp2.2\ProblemA.dll
+C:\Users\katan\RiderProjects\AtCoder\ProblemA\bin\Debug\netcoreapp2.2\ProblemA.pdb
+C:\Users\katan\RiderProjects\AtCoder\ProblemA\obj\Debug\netcoreapp2.2\ProblemA.csprojAssemblyReference.cache
+C:\Users\katan\RiderProjects\AtCoder\ProblemA\obj\Debug\netcoreapp2.2\ProblemA.csproj.CoreCompileInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\ProblemA\obj\Debug\netcoreapp2.2\ProblemA.AssemblyInfoInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\ProblemA\obj\Debug\netcoreapp2.2\ProblemA.AssemblyInfo.cs
+C:\Users\katan\RiderProjects\AtCoder\ProblemA\obj\Debug\netcoreapp2.2\ProblemA.dll
+C:\Users\katan\RiderProjects\AtCoder\ProblemA\obj\Debug\netcoreapp2.2\ProblemA.pdb

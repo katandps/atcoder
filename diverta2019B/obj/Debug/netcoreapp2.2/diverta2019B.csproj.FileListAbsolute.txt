@@ -1,0 +1,11 @@
+C:\Users\katan\RiderProjects\AtCoder\diverta2019B\bin\Debug\netcoreapp2.2\diverta2019B.deps.json
+C:\Users\katan\RiderProjects\AtCoder\diverta2019B\bin\Debug\netcoreapp2.2\diverta2019B.runtimeconfig.json
+C:\Users\katan\RiderProjects\AtCoder\diverta2019B\bin\Debug\netcoreapp2.2\diverta2019B.runtimeconfig.dev.json
+C:\Users\katan\RiderProjects\AtCoder\diverta2019B\bin\Debug\netcoreapp2.2\diverta2019B.dll
+C:\Users\katan\RiderProjects\AtCoder\diverta2019B\bin\Debug\netcoreapp2.2\diverta2019B.pdb
+C:\Users\katan\RiderProjects\AtCoder\diverta2019B\obj\Debug\netcoreapp2.2\diverta2019B.csprojAssemblyReference.cache
+C:\Users\katan\RiderProjects\AtCoder\diverta2019B\obj\Debug\netcoreapp2.2\diverta2019B.csproj.CoreCompileInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\diverta2019B\obj\Debug\netcoreapp2.2\diverta2019B.AssemblyInfoInputs.cache
+C:\Users\katan\RiderProjects\AtCoder\diverta2019B\obj\Debug\netcoreapp2.2\diverta2019B.AssemblyInfo.cs
+C:\Users\katan\RiderProjects\AtCoder\diverta2019B\obj\Debug\netcoreapp2.2\diverta2019B.dll
+C:\Users\katan\RiderProjects\AtCoder\diverta2019B\obj\Debug\netcoreapp2.2\diverta2019B.pdb
