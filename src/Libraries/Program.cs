@@ -1,11 +1,16 @@
-﻿namespace Libraries
+﻿using System;
+
+namespace Libraries
 {
     internal class Program
     {
         public static void Main(string[] args)
         {
-            var com = new Combination(1000000000);
-            com.Solve(1000000000, 100000);
+            for (int i = 0; i < 50; i++)
+            {
+                Console.WriteLine(i);
+                Console.WriteLine((int) (Modular.Fac(i) / Modular.Fac(i / 2) / Modular.Fac(i - i / 2)));
+            }
         }
     }
 }
