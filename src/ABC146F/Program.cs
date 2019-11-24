@@ -2,28 +2,42 @@
 using System.Collections.Generic;
 using System.Linq;
 
+//[WIP]
 namespace ABC146F
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var v = Cin.Long();
-            var solver = new Solver();
-
+            var nm = Cin.LArr();
+            var solver = new Solver(nm[0], nm[1], Cin.String());
             Console.WriteLine(solver.Solve());
         }
     }
 
     class Solver
     {
-        public Solver()
-        {
+        private long N;
+        private long M;
+        private string S;
 
+        public Solver(long n, long m, string s)
+        {
+            N = n;
+            M = m;
+            S = s;
         }
 
         public IConvertible Solve()
         {
+            var rev = S.Reverse().ToArray();
+
+            List<long> ans = new List<long>();
+            long walk = 1;
+            long rest = N - 1;
+
+            
+            
             return 0;
         }
     }

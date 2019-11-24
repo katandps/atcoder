@@ -8,8 +8,7 @@ namespace ABC146B
     {
         static void Main(string[] args)
         {
-            var v = Cin.Long();
-            var solver = new Solver();
+            var solver = new Solver(Cin.Int(),Cin.String());
 
             Console.WriteLine(solver.Solve());
         }
@@ -17,14 +16,27 @@ namespace ABC146B
 
     class Solver
     {
-        public Solver()
+        public int N;
+        public string S;
+        public Solver(int n, string s)
         {
-
+            N = n;
+            S = s;
         }
 
         public IConvertible Solve()
         {
-            return 0;
+            int[] ss = new int[S.Length];
+            for (int i = 0; i < S.Length; i++)
+            {
+                ss[i] = S[i] + N;
+                if (ss[i] > 90)
+                {
+                    ss[i] -= 26;
+                }
+            }
+
+            return new String(ss.Select(i => (char)i).ToArray());
         }
     }
 

@@ -8,10 +8,31 @@ namespace ABC146A
     {
         static void Main(string[] args)
         {
-            var v = Cin.Long();
-            var solver = new Solver();
-
-            Console.WriteLine(solver.Solve());
+            var s = Cin.String();
+            if (s == "SAT")
+            {
+                Console.WriteLine(1);
+                return;
+            } else if (s == "FRI")
+            {
+                Console.WriteLine(2);
+                return;
+            }
+            else if (s == "THU")
+            {
+                Console.WriteLine(3);
+                return;
+            }
+            else if (s == "WED")
+            {
+                Console.WriteLine(4);
+            }
+            else if (s == "TUE")
+            {
+                Console.WriteLine(5);
+                
+            }else if (s == "MON")
+            {Console.WriteLine(6);}else {Console.WriteLine(7);}
         }
     }
 

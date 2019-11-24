@@ -8,8 +8,7 @@ namespace ABC146C
     {
         static void Main(string[] args)
         {
-            var v = Cin.Long();
-            var solver = new Solver();
+            var solver = new Solver(Cin.LArr());
 
             Console.WriteLine(solver.Solve());
         }
@@ -17,14 +16,45 @@ namespace ABC146C
 
     class Solver
     {
-        public Solver()
+        private long A;
+        private long B;
+        private long X;
+        public Solver(long[]abx)
         {
-
+            A = abx[0];
+            B = abx[1];
+            X = abx[2];
         }
 
         public IConvertible Solve()
         {
-            return 0;
+            long y = 10;
+            long max = 0;
+            for (int i = 1; i <= 9; i++)
+            {
+                var x = X - B * i;//桁補正抜きの所持金
+                if (x <= 0)
+                {
+                    continue;
+                }
+                var a = x / A;//買える最大の整数
+                if (a > y - 1)
+                {
+                    max = Math.Max(max, y - 1);
+                }
+                else
+                {
+                    max = Math.Max(max, a);
+                }
+
+                y *= 10;
+            }
+
+            if (X > A * 1000000000 + B * 10)
+            {
+                return 1000000000;
+            }
+            return max;
         }
     }
 
