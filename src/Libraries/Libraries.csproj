@@ -38,6 +38,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinarySearch.cs" />
     <Compile Include="Combination.cs" />
     <Compile Include="Modular.cs" />
     <Compile Include="Program.cs" />
