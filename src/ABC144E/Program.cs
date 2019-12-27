@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 // namespaceの値をコンテスト名にして運用
-namespace Libraries
+namespace ABC144E
 {
     class Input
     {
@@ -99,7 +99,7 @@ namespace Libraries
             B = longs[1];
             C = longs[2];
         }
-        
+
         /// <summary>
         /// 4つの整数が1行に書かれている入力を、4つのlongで受け取る
         /// </summary>
@@ -174,11 +174,53 @@ namespace Libraries
         public Solver()
         {
             Input input = new Input();
+            input.Longs(ref N, ref K);
+            A = input.ArrayLong();
+            F = input.ArrayLong();
         }
+
+        private long N;
+        private long K;
+        private long[] A;
+        private long[] F;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            Array.Sort(A);
+            Array.Sort(F);
+            Array.Reverse(F);
+
+            long left = -1;
+            long right = (long) Math.Pow(10, 13);
+            while (right - left > 1)
+            {
+                long mid = left + (right - left) / 2;
+
+                if (CanEat(mid))
+                {
+                    right = mid;
+                }
+                else
+                {
+                    left = mid;
+                }
+            }
+
+            Console.WriteLine(right);
+        }
+
+        private bool CanEat(long x)
+        {
+            long k = 0;
+            for (int i = 0; i < N; i++)
+            {
+                if (x < A[i] * F[i])
+                {
+                    k += (long) Math.Ceiling((double) (A[i] * F[i] - x) / F[i]);
+                }
+            }
+
+            return k <= K;
         }
     }
 }

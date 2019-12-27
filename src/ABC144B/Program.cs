@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 // namespaceの値をコンテスト名にして運用
-namespace Libraries
+namespace ABC144B
 {
     class Input
     {
@@ -75,48 +75,6 @@ namespace Libraries
         }
 
         /// <summary>
-        /// 2つの整数が1行に書かれている入力を、2つのlongで受け取る
-        /// </summary>
-        /// <param name="A"></param>
-        /// <param name="B"></param>
-        public void Longs(ref long A, ref long B)
-        {
-            var longs = ArrayLong();
-            A = longs[0];
-            B = longs[1];
-        }
-
-        /// <summary>
-        /// 3つの整数が1行に書かれている入力を、3つのlongで受け取る
-        /// </summary>
-        /// <param name="A"></param>
-        /// <param name="B"></param>
-        /// <param name="C"></param>
-        public void Longs(ref long A, ref long B, ref long C)
-        {
-            var longs = ArrayLong();
-            A = longs[0];
-            B = longs[1];
-            C = longs[2];
-        }
-        
-        /// <summary>
-        /// 4つの整数が1行に書かれている入力を、4つのlongで受け取る
-        /// </summary>
-        /// <param name="A"></param>
-        /// <param name="B"></param>
-        /// <param name="C"></param>
-        /// <param name="D"></param>
-        public void Longs(ref long A, ref long B, ref long C, ref long D)
-        {
-            var longs = ArrayLong();
-            A = longs[0];
-            B = longs[1];
-            C = longs[2];
-            D = longs[3];
-        }
-
-        /// <summary>
         /// 1行の入力を取得
         /// </summary>
         /// <returns>long型の配列</returns>
@@ -174,11 +132,25 @@ namespace Libraries
         public Solver()
         {
             Input input = new Input();
+            N = input.Long();
         }
+
+        private long N;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            for (int i = 1; i <= 9; i++)
+            {
+                for (int j = 1; j <= 9; j++)
+                {
+                    if (N == i * j)
+                    {
+                        Console.WriteLine("Yes");
+                        return;
+                    }
+                }
+            }
+            Console.WriteLine("No");
         }
     }
 }

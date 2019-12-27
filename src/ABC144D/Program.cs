@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 // namespaceの値をコンテスト名にして運用
-namespace Libraries
+namespace ABC144D
 {
     class Input
     {
@@ -174,11 +174,23 @@ namespace Libraries
         public Solver()
         {
             Input input = new Input();
+            input.Longs(ref A, ref B, ref X);
         }
+
+        private long A;
+        private long B;
+        private long X;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            if (X < A * A * B / 2)
+            {
+                Console.WriteLine(Math.Atan((double) A * B * B / X / 2) * 180 / Math.PI);
+            }
+            else
+            {
+                Console.WriteLine(Math.Atan((double) 2 * B / A - (double) 2 * X / A / A / A) * 180 / Math.PI);
+            }
         }
     }
 }
