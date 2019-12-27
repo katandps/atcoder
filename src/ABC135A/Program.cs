@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-// namespaceの値をコンテスト名にして運用
-namespace Libraries
+namespace ABC135A
 {
     class Program
     {
@@ -19,11 +18,23 @@ namespace Libraries
         public Solver()
         {
             Input input = new Input();
+            var ab = input.ArrayLong();
+            A = ab[0];
+            B = ab[1];
         }
+
+        private long A;
+        private long B;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            if ((A - B) % 2 != 0)
+            {
+                Console.WriteLine("IMPOSSIBLE");
+                return;
+            }
+
+            Console.WriteLine(Math.Min(A, B) + Math.Abs(A - B) / 2);
         }
     }
 
@@ -138,4 +149,5 @@ namespace Libraries
         {
             return String().Split(' ');
         }
-    } }
+    }
+}
