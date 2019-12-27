@@ -117,6 +117,23 @@ namespace Libraries
         }
 
         /// <summary>
+        /// 2つの整数が複数行に書かれている入力を、2つのlong[]で受け取る
+        /// </summary>
+        /// <param name="rowNumber"></param>
+        /// <param name="A"></param>
+        /// <param name="B"></param>
+        public void LongsArray(long rowNumber, ref long[] A, ref long[] B)
+        {
+            A = new long[rowNumber];
+            B = new long[rowNumber];
+            for (int i = 0; i < rowNumber; i++)
+            {
+                var l = ArrayLong();
+                A[i] = l[0];
+                B[i] = l[1];
+            }
+        }
+        /// <summary>
         /// 1行の入力を取得
         /// </summary>
         /// <returns>long型の配列</returns>
