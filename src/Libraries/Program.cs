@@ -133,6 +133,28 @@ namespace Libraries
                 B[i] = l[1];
             }
         }
+        
+        /// <summary>
+        /// 3つの整数が複数行に書かれている入力を、2つのlong[]で受け取る
+        /// </summary>
+        /// <param name="rowNumber"></param>
+        /// <param name="A"></param>
+        /// <param name="B"></param>
+        /// <param name="C"></param>
+        public void LongsArray(long rowNumber, ref long[] A, ref long[] B, ref long[] C)
+        {
+            A = new long[rowNumber];
+            B = new long[rowNumber];
+            C = new long[rowNumber];
+            for (int i = 0; i < rowNumber; i++)
+            {
+                var l = ArrayLong();
+                A[i] = l[0];
+                B[i] = l[1];
+                C[i] = l[2];
+            }
+        }
+        
         /// <summary>
         /// 1行の入力を取得
         /// </summary>
