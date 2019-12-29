@@ -213,11 +213,74 @@ namespace ABC149D
         public Solver()
         {
             Input input = new Input();
+            input.Longs(ref N, ref K);
+            input.Longs(ref R, ref S, ref P);
+            T = input.String();
         }
+
+        private long N;
+        private long K;
+        private long R;
+        private long S;
+        private long P;
+        private string T;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+                        
+            List<char>[] handsByK = new List<char>[K];
+            for (int i = 0; i < K; i++)
+            {
+                handsByK[i] = new List<char>();
+            }
+            
+            for (int i = 0; i < N; i++)
+            {
+                var key = i % K;
+                switch (T[i])
+                {
+                    case 'r':
+                        handsByK[key].Add('P');
+                        break;
+                    case 's':
+                        handsByK[key].Add('R');
+                        break;
+                    case 'p':
+                        handsByK[key].Add('S');
+                        break;
+                }
+            }
+
+            long score = 0;
+            foreach (var hands in handsByK)
+            {
+                char before = ' ';
+                foreach (char hand in hands)
+                {
+                    if (before != hand)
+                    {
+                        switch (hand)
+                        {
+                            case 'P':
+                                score += P;
+                                break;
+                            case 'R':
+                                score += R;
+                                break;
+                            case 'S':
+                                score += S;
+                                break;
+                        }
+                        before = hand;
+                    }
+                    else
+                    {
+                        before = ' ';
+                    }
+                }
+            }
+            
+            Console.WriteLine(score);
         }
     }
 }

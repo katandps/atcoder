@@ -213,11 +213,46 @@ namespace ABC149C
         public Solver()
         {
             Input input = new Input();
+            X = input.Long();
         }
+
+        private long X;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            long root = (long) Math.Sqrt(X);
+            
+            HashSet<long> set = new HashSet<long>();
+
+            for (int i = 1; i < 200000; i++)
+            {
+                set.Add(i);
+            }
+
+            for (int i = 2; i < root; i++)
+            {
+                for (int j = 1; j < 200000; j++)
+                {
+                    if (!set.Contains(j))
+                    {
+                        continue;
+                    }
+
+                    if (j != i && j % i == 0)
+                    {
+                        set.Remove(j);
+                    }
+                }
+            }
+
+            for (long i = X; i < 200000; i++)
+            {
+                if (set.Contains(i))
+                {
+                    Console.WriteLine(i);
+                    return;
+                }
+            }
         }
     }
 }

@@ -213,11 +213,39 @@ namespace ABC149A
         public Solver()
         {
             Input input = new Input();
+
+            s = input.String();
         }
+
+        private string s;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            bool a = false;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == ' ')
+                {
+                    a = true;
+                    continue;
+                }
+
+                if (a)
+                {
+                    Console.Write(s[i]);
+                }
+            }
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == ' ')
+                {
+                    break;
+                }
+                Console.Write(s[i]);
+            }
+            
+            Console.WriteLine("");
         }
     }
 }

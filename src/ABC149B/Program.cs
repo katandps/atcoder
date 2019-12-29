@@ -213,11 +213,31 @@ namespace ABC149B
         public Solver()
         {
             Input input = new Input();
+            input.Longs(ref A, ref B, ref K);
         }
+
+        private long A;
+        private long B;
+        private long K;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            long rest = 0;
+            if (K <= A)
+            {
+                rest = A - K;
+                Console.WriteLine("" + rest + " " + B);
+                return;
+            }
+
+            if (K > A + B)
+            {
+                Console.WriteLine("0 0");
+                return;
+            }
+
+            rest = B - K + A;
+            Console.WriteLine("0 " + rest);
         }
     }
 }

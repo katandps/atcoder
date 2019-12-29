@@ -213,11 +213,97 @@ namespace ABC149E
         public Solver()
         {
             Input input = new Input();
+            input.Longs(ref N, ref M);
+            A = input.ArrayLong();
         }
+
+        private long N;
+        private long M;
+        private long[] A;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            Array.Sort(A);
+            Array.Reverse(A);
+
+            var pair = Search();
+            Console.WriteLine(pair);
+
+            long ans = 0;
+            int left = 0;
+            int right = (int) N - 1;
+
+            long[] sums = new long[N + 1];
+            sums[0] = 0;
+            for (int i = 1; i <= N; i++)
+            {
+                sums[i] = sums[i - 1] + A[i - 1];
+            }
+
+            long count = 0;
+            while (left <= right)
+            {
+                if (A[left] + A[right] >= pair)
+                {
+                    var score = 2 * (right - left + 1) * A[left] + (sums[right + 1] - sums[left + 1]) * 2;
+                    ans += score;
+                    count += (right - left) * 2 + 1;
+                    if (count > M)
+                    {
+                        ans -= A[left] + A[right];
+                    }
+
+                    left++;
+                    continue;
+                }
+
+                right--;
+            }
+
+            Console.WriteLine(ans);
+        }
+
+        /// <summary>
+        /// 二分探索
+        /// </summary>
+        /// <returns>条件を満たす最小の値</returns>
+        long Search()
+        {
+            long ng = -1;
+            long ok = N * A.Max();
+
+            while (Math.Abs(ok - ng) > 1 && !(Math.Abs(ok - ng) == 2 && ok + ng == M * 2))
+            {
+                long mid = (ok + ng) / 2;
+                if (IsOK(mid))
+                {
+                    ok = mid;
+                }
+                else ng = mid;
+            }
+
+            return ok;
+        }
+
+        bool IsOK(long key)
+        {
+            int maxIndex = 0;
+            int minIndex = (int) N - 1;
+            long count = 0;
+            while (maxIndex != minIndex)
+            {
+                if (A[maxIndex] + A[minIndex] >= key)
+                {
+                    var curCount = (minIndex - maxIndex - 1) * 2 + 1;
+                    maxIndex++;
+                    count += curCount;
+                    continue;
+                }
+
+                minIndex--;
+            }
+
+            return count <= M;
         }
     }
 }
