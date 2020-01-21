@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "katand",
+  "classifications": [
+    "Common",
+    "Console"
+  ],
+  "identity": "AtCoderLibrary.Template.CSharp",
+  "name": "AtCoderLibraryTemplate",
+  "shortName": "actemp",
+  "sources": [
+    {
+      "source": "./",
+      "target": "./",
+      "exclude": [
+        "**/.template.config/**",
+        "**/[Bb]in/**",
+        "**/[Oo]bj/**"
+      ]
+    }
+  ],
+  "symbols": {
+    "skipRestore": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "If specified, skips the automatic restore of the project on create.",
+      "defaultValue": "false"
+    },
+    "taskName": {
+      "type": "parameter",
+      "defaultValue": "NewTask",
+      "description": "AtCoder Task Name",
+      "replaces": "TaskName"
+    }
+  },
+  "postActions": [
+    {
+      "condition": "(!skipRestore)",
+      "description": "Restore NuGet packages required by this project.",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet restore'"
+        }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true
+    }
+  ],
+  "primaryOutputs": [
+    {
+      "path": "AtCoderTemplate.csproj"
+    }
+  ]
+}
