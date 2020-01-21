@@ -213,11 +213,28 @@ namespace ABC152B
         public Solver()
         {
             Input input = new Input();
+            input.Longs(ref a, ref b);
         }
 
+        private long a;
+        private long b;
         public void Solve()
         {
-            Console.WriteLine(0);
+            if (a < b)
+            {
+                for (int i = 0; i < b; i++)
+                {
+                    Console.Write(a);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < a; i++)
+                {
+                    Console.Write(b);
+                }
+            }
+            Console.WriteLine("");
         }
     }
 }

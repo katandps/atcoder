@@ -213,11 +213,15 @@ namespace ABC152A
         public Solver()
         {
             Input input = new Input();
+            long n = 0;
+            long m = 0;
+            input.Longs(ref n, ref m);
+            Console.WriteLine(n == m ? "Yes" : "No");
+            
         }
 
         public void Solve()
         {
-            Console.WriteLine(0);
         }
     }
 }

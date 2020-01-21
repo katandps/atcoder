@@ -213,11 +213,191 @@ namespace ABC152E
         public Solver()
         {
             Input input = new Input();
+            N = input.Long();
+            A = input.ArrayLong();
         }
+
+        private long N;
+        private long[] A;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            HashSet<long> primes = Primes(1000);
+
+            Dictionary<long, long> count = new Dictionary<long, long>();
+
+            for (int i = 0; i < N; i++)
+            {
+                Dictionary<long, int> localCount = new Dictionary<long, int>();
+                long t = A[i];
+                foreach (long prime in primes)
+                {
+                    while (t % prime == 0)
+                    {
+                        if (localCount.ContainsKey(prime))
+                        {
+                            localCount[prime]++;
+                        }
+                        else
+                        {
+                            localCount.Add(prime, 1);
+                        }
+
+                        t /= prime;
+                    }
+                }
+                if (localCount.ContainsKey(t))
+                {
+                    localCount[t]++;
+                }
+                else
+                {
+                    localCount.Add(t, 1);
+                }
+
+                foreach (KeyValuePair<long, int> VARIABLE in localCount)
+                {
+                    if (!count.ContainsKey(VARIABLE.Key))
+                    {
+                        count.Add(VARIABLE.Key, VARIABLE.Value);
+                    }
+                    else
+                    {
+                        if (count[VARIABLE.Key] < VARIABLE.Value)
+                        {
+                            count[VARIABLE.Key] = VARIABLE.Value;
+                        }
+                    }
+                }
+            }
+
+            Modular sum = 1;
+            foreach (KeyValuePair<long, long> l in count)
+            {
+                for (int i = 0; i < l.Value; i++)
+                {
+                    sum = sum * l.Key;
+                }
+            }
+
+            Modular ans = 0;
+            for (int i = 0; i < N; i++)
+            {
+                Modular ai = A[i];
+                ans += sum / ai;
+            }
+
+            Console.WriteLine((int) ans);
+        }
+
+
+        // m以下の素数を探す
+        HashSet<long> Primes(long m)
+        {
+            HashSet<long> l = new HashSet<long>();
+            bool[] b = new bool[m + 1];
+            b[0] = true;
+            b[1] = true;
+            for (int i = 2; i < m; i++)
+            {
+                for (int j = 2; i * j <= m; j++)
+                {
+                    b[i * j] = true;
+                }
+            }
+
+            for (int i = 2; i <= m; i++)
+            {
+                if (!b[i])
+                {
+                    l.Add(i);
+                }
+            }
+
+            return l;
+        }
+    }
+
+    class Modular
+    {
+        public static int M = 1000000007;
+        private long V;
+
+        public Modular(long v)
+        {
+            V = v;
+        }
+
+        public static implicit operator Modular(long a)
+        {
+            var m = a % M;
+            return new Modular(m < 0 ? m + M : m);
+        }
+
+        public static Modular operator +(Modular a, Modular b)
+        {
+            return a.V + b.V;
+        }
+
+        public static Modular operator -(Modular a, Modular b)
+        {
+            return a.V - b.V;
+        }
+
+        public static Modular operator *(Modular a, Modular b)
+        {
+            return a.V * b.V;
+        }
+
+        public static Modular Pow(Modular a, int n)
+        {
+            switch (n)
+            {
+                case 0:
+                    return 1;
+                case 1:
+                    return a;
+                default:
+                    var p = Pow(a, n / 2);
+                    return p * p * Pow(a, n % 2);
+            }
+        }
+
+        public static Modular operator /(Modular a, Modular b)
+        {
+            return a * Pow(b, M - 2);
+        }
+
+        private static readonly List<int> Facts = new List<int> {1};
+
+        public static Modular Fac(int n)
+        {
+            for (int i = Facts.Count; i <= n; ++i)
+            {
+                Facts.Add((int) (Math.BigMul(Facts.Last(), i) % M));
+            }
+
+            return Facts[n];
+        }
+
+        public static Modular Ncr(int n, int r)
+        {
+            if (n < r)
+            {
+                return 0;
+            }
+
+            if (n == r)
+            {
+                return 1;
+            }
+
+            return Fac(n) / (Fac(r) * Fac(n - r));
+        }
+
+        public static explicit operator int(Modular a)
+        {
+            return (int) a.V;
         }
     }
 }

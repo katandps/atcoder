@@ -213,11 +213,27 @@ namespace ABC152C
         public Solver()
         {
             Input input = new Input();
+            N = input.Long();
+            P = input.ArrayLong();
         }
+
+        private long N;
+        private long[] P;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            long min = 200001;
+            long ans = 0;
+            for (int i = 0; i < N; i++)
+            {
+                if (P[i] < min)
+                {
+                    ans++;
+                }
+
+                min = Math.Min(min, P[i]);
+            }
+            Console.WriteLine(ans);
         }
     }
 }

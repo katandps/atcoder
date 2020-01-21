@@ -213,11 +213,75 @@ namespace ABC152D
         public Solver()
         {
             Input input = new Input();
+            N = input.Long();
         }
+
+        private long N;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            long ans = 0;
+            Dictionary<long, long> score = new Dictionary<long, long>();
+            for (int i = 1; i <= 9; i++)
+            {
+                for (int j = 1; j <= 9; j++)
+                {
+                    if (i == j)
+                    {
+                        score.Add(i, 0);
+                        continue;
+                    }
+
+                    score.Add(10 * i + j, 0);
+                }
+            }
+
+            for (int i = 1; i <= N; i++)
+            {
+                string s = i.ToString();
+                int ten = int.Parse(s[0].ToString());
+                int one = int.Parse(s[s.Length - 1].ToString());
+
+                if (one == 0)
+                {
+                    continue;
+                }
+
+                if (ten == one)
+                {
+                    score[one]++;
+                    continue;
+                }
+
+                int num = ten * 10 + one;
+                score[num]++;
+            }
+
+            for (int i = 1; i <= N; i++)
+            {
+                string s = i.ToString();
+                int one = int.Parse(s[0].ToString());
+                int ten = int.Parse(s[s.Length - 1].ToString());
+
+                if (one == 0 || ten == 0)
+                {
+                    continue;
+                }
+
+                int num;
+                if (one == ten)
+                {
+                    num = one;
+                }
+                else
+                {
+                    num = ten * 10 + one;
+                }
+
+                ans += score[num];
+            }
+
+            Console.WriteLine(ans);
         }
     }
 }
