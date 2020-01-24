@@ -5,8 +5,8 @@
     "Common",
     "Console"
   ],
-  "identity": "AtCoderLibrary.Template.CSharp",
-  "name": "AtCoderLibraryTemplate",
+  "identity": "AtCoder.Template.CSharp",
+  "name": "AtCoderTaskTemplate",
   "shortName": "actemp",
   "sources": [
     {
