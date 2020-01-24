@@ -245,9 +245,6 @@ namespace ABC143E
             long[][] arriveCost = Enumerable.Repeat(0, (int) N).Select(_ => Enumerable.Repeat(L + 1, (int) N).ToArray())
                 .ToArray();
 
-            List<Tuple<long, long>>[] neighbors =
-                Enumerable.Repeat(0, (int) N).Select(_ => new List<Tuple<long, long>>()).ToArray();
-
             for (int i = 0; i < N; i++)
             {
                 arriveCost[i][i] = 0;
