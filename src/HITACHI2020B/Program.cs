@@ -98,7 +98,7 @@ namespace HITACHI2020B
             B = longs[1];
             C = longs[2];
         }
-        
+
         /// <summary>
         /// 4つの整数が1行に書かれている入力を、4つのlongで受け取る
         /// </summary>
@@ -132,7 +132,7 @@ namespace HITACHI2020B
                 B[i] = l[1];
             }
         }
-        
+
         /// <summary>
         /// 3つの整数が複数行に書かれている入力を、2つのlong[]で受け取る
         /// </summary>
@@ -153,7 +153,7 @@ namespace HITACHI2020B
                 C[i] = l[2];
             }
         }
-        
+
         /// <summary>
         /// 1行の入力を取得
         /// </summary>
@@ -212,11 +212,30 @@ namespace HITACHI2020B
         public Solver()
         {
             Input input = new Input();
+            input.Longs(ref A, ref B, ref M);
+            a = input.ArrayLong();
+            b = input.ArrayLong();
+            input.LongsArray(M, ref x, ref y, ref c);
         }
+
+        private long A;
+        private long B;
+        private long M;
+        private long[] a;
+        private long[] b;
+        private long[] x;
+        private long[] y;
+        private long[] c;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            var m = a.Min() + b.Min();
+            for (int i = 0; i < M; i++)
+            {
+                m = Math.Min(a[x[i] - 1] + b[y[i] - 1] - c[i], m);
+            }
+
+            Console.WriteLine(m);
         }
     }
 }

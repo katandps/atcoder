@@ -212,11 +212,38 @@ namespace HITACHI2020A
         public Solver()
         {
             Input input = new Input();
+            S = input.String();
         }
 
+        private string S;
+        
         public void Solve()
         {
-            Console.WriteLine(0);
+            int count = 0;
+            for (int i = 0; i < S.Length; i++)
+            {
+                if (count == 0 && S[i] == 'h')
+                {
+                    count++;
+                    continue;
+                }
+
+                if (count == 1 && S[i] == 'i')
+                {
+                    count = 0;
+                    continue;
+                }
+
+                Console.WriteLine("No");
+                return;
+            }
+
+            if (count == 1)
+            {
+                Console.WriteLine("No");
+                return;
+            }
+            Console.WriteLine("Yes");
         }
     }
 }

@@ -98,7 +98,7 @@ namespace HITACHI2020C
             B = longs[1];
             C = longs[2];
         }
-        
+
         /// <summary>
         /// 4つの整数が1行に書かれている入力を、4つのlongで受け取る
         /// </summary>
@@ -132,7 +132,7 @@ namespace HITACHI2020C
                 B[i] = l[1];
             }
         }
-        
+
         /// <summary>
         /// 3つの整数が複数行に書かれている入力を、2つのlong[]で受け取る
         /// </summary>
@@ -153,7 +153,7 @@ namespace HITACHI2020C
                 C[i] = l[2];
             }
         }
-        
+
         /// <summary>
         /// 1行の入力を取得
         /// </summary>
@@ -212,11 +212,165 @@ namespace HITACHI2020C
         public Solver()
         {
             Input input = new Input();
+            N = input.Long();
+            input.LongsArray(N - 1, ref a, ref b);
         }
+
+        private long N;
+        private long[] a;
+        private long[] b;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            HashSet<long>[] e = new HashSet<long>[N + 1];
+            for (int i = 0; i <= N; i++)
+            {
+                e[i] = new HashSet<long>();
+            }
+
+            for (int i = 0; i < N - 1; i++)
+            {
+                e[a[i]].Add(b[i]);
+                e[b[i]].Add(a[i]);
+            }
+
+            HashSet<long> yellow = new HashSet<long>();
+            HashSet<long> red = new HashSet<long>();
+
+            Queue<QQ> q = new Queue<QQ>();
+            HashSet<long> already = new HashSet<long>();
+            red.Add(1);
+            already.Add(1);
+
+            q.Enqueue(new QQ(1, true));
+            while (q.Count > 0)
+            {
+                var v = q.Dequeue();
+                foreach (var l in e[v.L])
+                {
+                    if (already.Contains(l))
+                    {
+                        continue;
+                    }
+
+                    q.Enqueue(new QQ(l, v.IsRed ^ true));
+                    if (v.IsRed)
+                    {
+                        yellow.Add(l);
+                    }
+                    else
+                    {
+                        red.Add(l);
+                    }
+
+                    already.Add(l);
+                }
+            }
+
+            Stack<long>[] modThree = new Stack<long>[3];
+            for (int i = 0; i < 3; i++)
+            {
+                modThree[i] = new Stack<long>();
+            }
+
+            for (int i = 1; i <= N; i++)
+            {
+                modThree[i % 3].Push(i);
+            }
+
+            long[] ans = new long[N + 1];
+
+            if (red.Count > N / 3 && yellow.Count > N / 3)
+            {
+                foreach (long i in red)
+                {
+                    if (modThree[1].Count > 0)
+                    {
+                        ans[i] = modThree[1].Pop();
+                    }
+                    else
+                    {
+                        ans[i] = modThree[0].Pop();
+                    }
+                }
+
+                foreach (long i in yellow)
+                {
+                    if (modThree[2].Count > 0)
+                    {
+                        ans[i] = modThree[2].Pop();
+                    }
+                    else
+                    {
+                        ans[i] = modThree[0].Pop();
+                    }
+                }
+            }
+            else if (red.Count > N / 3)
+            {
+                foreach (long i in yellow)
+                {
+                    ans[i] = modThree[0].Pop();;
+                }
+
+                foreach (long i in red)
+                {
+                    if (modThree[0].Count > 0)
+                    {
+                        ans[i] = modThree[0].Pop();
+                    }
+                    else if (modThree[1].Count > 0)
+                    {
+                        ans[i] = modThree[1].Pop();
+                    }
+                    else
+                    {
+                        ans[i] = modThree[2].Pop();
+                    }
+                }
+            }
+            else
+            {
+                foreach (long i in red)
+                {
+                    ans[i] = modThree[0].Pop();;
+                }
+
+                foreach (long i in yellow)
+                {
+                    if (modThree[0].Count > 0)
+                    {
+                        ans[i] = modThree[0].Pop();
+                    }
+                    else if (modThree[1].Count > 0)
+                    {
+                        ans[i] = modThree[1].Pop();
+                    }
+                    else
+                    {
+                        ans[i] = modThree[2].Pop();
+                    }
+                }
+            }
+
+            for (int i = 1; i <= N; i++)
+            {
+                Console.Write(ans[i] + " ");
+            }
+
+            Console.WriteLine();
+        }
+    }
+
+    class QQ
+    {
+        public long L;
+        public bool IsRed;
+
+        public QQ(long l, bool isRed)
+        {
+            L = l;
+            IsRed = isRed;
         }
     }
 }
