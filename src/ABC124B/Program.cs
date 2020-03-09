@@ -206,11 +206,27 @@ namespace ABC124B
         public Solver()
         {
             Input input = new Input();
+            input.Long(out N);
+            input.Long(out H);
         }
+
+        private long N;
+        private long[] H;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            long h = 0;
+            long ans = 0;
+            for (long i = 0; i < N; i++)
+            {
+                if (h <= H[i])
+                {
+                    ans++;
+                }
+
+                h = Math.Max(h, H[i]);
+            }
+            Console.WriteLine(ans);
         }
     }
 }

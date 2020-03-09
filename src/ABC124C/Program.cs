@@ -206,11 +206,53 @@ namespace ABC124C
         public Solver()
         {
             Input input = new Input();
+            input.String(out S);
         }
+
+        private string S;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            long zeroStart = 0;
+            long oneStart = 0;
+            // 010101...
+            for (long i = 0; i < S.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    if (S[(int) i] == '1')
+                    {
+                        oneStart++;
+                    }
+                }
+                else
+                {
+                    if (S[(int) i] == '0')
+                    {
+                        oneStart++;
+                    }
+                }
+            }
+
+            // 101010...
+            for (long i = 0; i < S.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    if (S[(int) i] == '0')
+                    {
+                        zeroStart++;
+                    }
+                }
+                else
+                {
+                    if (S[(int) i] == '1')
+                    {
+                        zeroStart++;
+                    }
+                }
+            }
+            Console.WriteLine(Math.Min(oneStart, zeroStart));
         }
     }
 }

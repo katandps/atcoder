@@ -206,11 +206,73 @@ namespace ABC124D
         public Solver()
         {
             Input input = new Input();
+            input.Long(out N, out K);
+            input.String(out S);
         }
+
+        private long N;
+        private long K;
+        private string S;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            List<long> count = new List<long>();
+            var first = S[0];
+            if (first == '0')
+            {
+                //逆立ちで囲むことで場合分けをなくす
+                count.Add(0);
+            }
+
+            long c = 1;
+            for (long i = 1; i < N; i++)
+            {
+                if (S[(int) i] != first)
+                {
+                    count.Add(c);
+                    first = S[(int) i];
+                    c = 1;
+                    continue;
+                }
+
+                c++;
+            }
+
+            count.Add(c);
+            if (first == '0')
+            {
+                //逆立ちで囲むことで場合分けをなくす
+                count.Add(0);
+            }
+
+            if (count.Count <= 2 * K + 1)
+            {
+                Console.WriteLine(count.Sum());
+                return;
+            }
+
+            List<long> sum = new List<long>();
+            long s = 0;
+            for (long i = 0; i < 2 * K + 1; i++)
+            {
+                s += count[(int) i];
+            }
+
+            sum.Add(s);
+
+            for (long i = 2 * K + 1; i < count.Count - 1; i += 2)
+            {
+                var last = sum.Last();
+                sum.Add(
+                    last
+                    + count[(int) i + 1]
+                    + count[(int) i]
+                    - count[(int) i - 2 * (int) K]
+                    - count[(int) i - 2 * (int) K - 1]
+                );
+            }
+
+            Console.WriteLine(sum.Max());
         }
     }
 }

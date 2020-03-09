@@ -206,11 +206,20 @@ namespace ABC124A
         public Solver()
         {
             Input input = new Input();
+            input.Long(out A, out B);
         }
 
+        private long A;
+        private long B;
+        
         public void Solve()
         {
-            Console.WriteLine(0);
+            if (A == B)
+            {
+                Console.WriteLine(A + B);
+                return;
+            }
+            Console.WriteLine(Math.Max(A, B) * 2 - 1);
         }
     }
 }
