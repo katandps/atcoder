@@ -34,7 +34,8 @@ namespace ABC124D
         /// <returns>int型の値</returns>
         public void Int(out int i)
         {
-            String(out string s);
+            string s;
+            String(out s);
             i = int.Parse(s);
         }
 
@@ -44,7 +45,8 @@ namespace ABC124D
         /// <param name="a"></param>
         public void Long(out long a)
         {
-            String(out string s);
+            string s;
+            String(out s);
             a = long.Parse(s);
         }
 
@@ -55,7 +57,8 @@ namespace ABC124D
         /// <param name="b"></param>
         public void Long(out long a, out long b)
         {
-            Long(out long[] lArr);
+            long[] lArr;
+            Long(out lArr);
             a = lArr[0];
             b = lArr[1];
         }
@@ -68,7 +71,8 @@ namespace ABC124D
         /// <param name="c"></param>
         public void Long(out long a, out long b, out long c)
         {
-            Long(out long[] lArr);
+            long[] lArr;
+            Long(out lArr);
             a = lArr[0];
             b = lArr[1];
             c = lArr[2];
@@ -83,7 +87,8 @@ namespace ABC124D
         /// <param name="d"></param>
         public void Long(out long a, out long b, out long c, out long d)
         {
-            Long(out long[] lArr);
+            long[] lArr;
+            Long(out lArr);
             a = lArr[0];
             b = lArr[1];
             c = lArr[2];
@@ -165,7 +170,8 @@ namespace ABC124D
         /// <returns>double型の値</returns>
         public void Double(out double d)
         {
-            String(out var s);
+            string s;
+            String(out s);
             d = double.Parse(s);
         }
 
@@ -180,7 +186,8 @@ namespace ABC124D
 
         private IEnumerable<string> Split()
         {
-            String(out string s);
+            string s;
+            String(out s);
             return s.Split(' ');
         }
     }
