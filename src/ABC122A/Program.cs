@@ -206,11 +206,31 @@ namespace ABC122A
         public Solver()
         {
             Input input = new Input();
+            input.String(out B);
         }
+
+        private string B;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            Console.WriteLine(s());
+        }
+
+        private char s()
+        {
+            switch (B[0])
+            {
+                case 'A':
+                    return 'T';
+                case 'T':
+                    return 'A';
+                case 'G':
+                    return 'C';
+                case 'C':
+                    return 'G';
+            }
+
+            return ' ';
         }
     }
 }

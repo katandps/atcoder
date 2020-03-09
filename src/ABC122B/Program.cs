@@ -206,11 +206,36 @@ namespace ABC122B
         public Solver()
         {
             Input input = new Input();
+            input.String(out S);
         }
+
+        private string S;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            bool[] b = new bool[S.Length];
+            for (int i = 0; i < S.Length; i++)
+            {
+                if (S[i] == 'A' || S[i] == 'C' || S[i] == 'G' || S[i] == 'T') b[i] = true;
+            }
+
+            int cnt = 0;
+            int max = 0;
+            for (long i = 0; i < S.Length; i++)
+            {
+                if (b[i])
+                {
+                    cnt++;
+                }
+                else
+                {
+                    max = Math.Max(max, cnt);
+                    cnt = 0;
+                }
+            }
+
+            max = Math.Max(max, cnt);
+            Console.WriteLine(max);
         }
     }
 }

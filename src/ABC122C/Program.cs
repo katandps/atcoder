@@ -206,11 +206,38 @@ namespace ABC122C
         public Solver()
         {
             Input input = new Input();
+            input.Long(out N, out Q);
+            input.String(out S);
+            input.Long(Q, out l, out r);
         }
+
+        private long N;
+        private long Q;
+        private string S;
+        private long[] l;
+        private long[] r;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            long[] sum = new long[N + 1];
+
+            bool a = false;
+            for (int i = 0; i < N; i++)
+            {
+                sum[i + 1] = sum[i];
+                
+                if (a && S[i] == 'C')
+                {
+                    sum[i + 1]++;
+                }
+
+                a = S[i] == 'A';
+            }
+
+            for (long i = 0; i < Q; i++)
+            {
+                Console.WriteLine(sum[r[i]] - sum[l[i]]);
+            }
         }
     }
 }

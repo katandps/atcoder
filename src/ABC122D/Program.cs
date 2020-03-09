@@ -206,11 +206,85 @@ namespace ABC122D
         public Solver()
         {
             Input input = new Input();
+            input.Int(out N);
         }
+
+        private int N;
+
+        private long MOD = 1000000007;
+        private Dictionary<string, long>[] memo;
+        char[] ACGT = {'A', 'C', 'G', 'T'};
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            memo = new Dictionary<string, long>[N + 1];
+            for (long i = 0; i <= N; i++)
+            {
+                memo[i] = new Dictionary<string, long>();
+            }
+
+            Console.WriteLine(dfs(0, "TTT"));
+        }
+
+
+        public long dfs(int cur, string last3)
+        {
+            if (memo[cur].ContainsKey(last3))
+            {
+                return memo[cur][last3];
+            }
+
+            if (cur == N) return 1;
+            long ret = 0;
+            foreach (char c in ACGT)
+            {
+                if (Ok(last3 + c))
+                {
+                    ret = (ret + dfs(cur + 1, last3.Substring(1, 2) + c)) % MOD;
+                }
+            }
+
+            memo[cur].Add(last3, ret);
+            return ret;
+        }
+
+        public bool Ok(string last4)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                var t = last4.ToList();
+                if (i >= 1)
+                {
+                    var tmp = t[i - 1];
+                    t[i - 1] = t[i];
+                    t[i] = tmp;
+                }
+
+                int c = 0;
+                foreach (char c1 in t)
+                {
+                    if (c == 0 && c1 == 'A')
+                    {
+                        c++;
+                        continue;
+                    }
+
+                    if (c == 1 && c1 == 'G')
+                    {
+                        c++;
+                        continue;
+                    }
+
+                    if (c == 2 && c1 == 'C')
+                    {
+                        return false;
+                    }
+
+                    c = c1 == 'A' ? 1 : 0;
+                }
+            }
+
+            return true;
         }
     }
 }
