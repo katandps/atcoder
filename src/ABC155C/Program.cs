@@ -98,7 +98,7 @@ namespace ABC155C
             B = longs[1];
             C = longs[2];
         }
-        
+
         /// <summary>
         /// 4つの整数が1行に書かれている入力を、4つのlongで受け取る
         /// </summary>
@@ -132,7 +132,7 @@ namespace ABC155C
                 B[i] = l[1];
             }
         }
-        
+
         /// <summary>
         /// 3つの整数が複数行に書かれている入力を、2つのlong[]で受け取る
         /// </summary>
@@ -153,7 +153,7 @@ namespace ABC155C
                 C[i] = l[2];
             }
         }
-        
+
         /// <summary>
         /// 1行の入力を取得
         /// </summary>
@@ -212,11 +212,62 @@ namespace ABC155C
         public Solver()
         {
             Input input = new Input();
+            N = input.Long();
+            S = new string[N];
+            for (int i = 0; i < N; i++)
+            {
+                S[i] = input.String();
+            }
         }
+
+        private long N;
+        private string[] S;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            Dictionary<string, int> dic = new Dictionary<string, int>();
+            int max = 0;
+            for (int i = 0; i < N; i++)
+            {
+                if (!dic.ContainsKey(S[i]))
+                {
+                    dic.Add(S[i], 0);
+                }
+
+                dic[S[i]]++;
+                max = Math.Max(max, dic[S[i]]);
+            }
+
+            List<string> list = new List<string>();
+            foreach (KeyValuePair<string, int> s in dic)
+            {
+                if (s.Value == max)
+                {
+                    list.Add(s.Key);
+                }
+            }
+
+            var arr = list.ToArray();
+            Array.Sort(arr, new StringComparator());
+            foreach (string a in arr)
+            {
+                Console.WriteLine(a);
+            }
+        }
+    }
+
+    class StringComparator : IComparer<string>
+    {
+        int IComparer<string>.Compare(string a, string b)
+        {
+            int length = Math.Min(a.Length, b.Length);
+            for (int i = 0; i < length; i++)
+            {
+                if (a[i] < b[i]) return -1;
+                if (a[i] > b[i]) return 1;
+            }
+
+            return a.Length - b.Length;
         }
     }
 }

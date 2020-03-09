@@ -212,11 +212,25 @@ namespace ABC155A
         public Solver()
         {
             Input input = new Input();
+            A = input.ArrayLong();
         }
+
+        private long[] A;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            if (A[0] == A[1] && A[0] == A[2])
+            {
+                Console.WriteLine("No");
+                return;
+            }
+
+            if (A[0] == A[1] || A[0] == A[2] || A[1] == A[2])
+            {
+                Console.WriteLine("Yes");
+                return;
+            }
+            Console.WriteLine("No");
         }
     }
 }

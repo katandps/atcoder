@@ -212,11 +212,25 @@ namespace ABC155B
         public Solver()
         {
             Input input = new Input();
+            N = input.Long();
+            A = input.ArrayLong();
         }
 
+        private long N;
+        private long[] A;
+        
         public void Solve()
         {
-            Console.WriteLine(0);
+            bool denied = false;
+            for (int i = 0; i < N; i++)
+            {
+                if (A[i] % 2 == 0 && A[i] % 3 != 0 && A[i] % 5 != 0)
+                {
+                    denied = true;
+                }
+            }
+            
+            Console.WriteLine(denied ? "DENIED" : "APPROVED");
         }
     }
 }
