@@ -206,11 +206,18 @@ namespace ABC123Re1C
         public Solver()
         {
             Input input = new Input();
+            input.Long(out N);
+            input.Long(5, out A);
         }
+
+        private long N;
+        private long[] A;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            long bottle = A.Min();
+
+            Console.WriteLine((N + bottle - 1) / bottle + 4);
         }
     }
 }

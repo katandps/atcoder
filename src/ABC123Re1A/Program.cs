@@ -206,11 +206,25 @@ namespace ABC123Re1A
         public Solver()
         {
             Input input = new Input();
+            input.Long(out A);
+            input.Long(out B);
+            input.Long(out C);
+            input.Long(out D);
+            input.Long(out E);
+            input.Long(out K);
         }
+
+        private long A;
+        private long B;
+        private long C;
+        private long D;
+        private long E;
+        private long K;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            long[] a = {A, B, C, D, E};
+            Console.WriteLine(a.Max() - a.Min() > K ? ":(" : "Yay!");
         }
     }
 }

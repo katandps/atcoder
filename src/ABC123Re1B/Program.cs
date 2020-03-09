@@ -206,11 +206,50 @@ namespace ABC123Re1B
         public Solver()
         {
             Input input = new Input();
+            input.Long(out A);
+            input.Long(out B);
+            input.Long(out C);
+            input.Long(out D);
+            input.Long(out E);
         }
+
+        private long A;
+        private long B;
+        private long C;
+        private long D;
+        private long E;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            long[] a = {A, B, C, D, E};
+            long[] b = {A, B, C, D, E};
+            long[] c = new long[5];
+            for (long i = 0; i < 5; i++)
+            {
+                c[i] = a[i] % 10;
+                b[i] = (b[i] + 9) / 10 * 10;
+                if (c[i] == 0) c[i] += 10;
+            }
+
+            long minIndex = -1;
+            long min = 11;
+            for (long i = 0; i < 5; i++)
+            {
+                if (c[i] < min)
+                {
+                    minIndex = i;
+                    min = c[i];
+                }
+            }
+
+            long ans = 0;
+            for (long i = 0; i < 5; i++)
+            {
+                if (minIndex == i) ans += a[i];
+                else ans += b[i];
+            }
+            
+            Console.WriteLine(ans);
         }
     }
 }

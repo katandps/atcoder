@@ -206,11 +206,63 @@ namespace ABC123Re1D
         public Solver()
         {
             Input input = new Input();
+            input.Long(out X, out Y, out Z, out K);
+            input.Long(out A);
+            input.Long(out B);
+            input.Long(out C);
         }
 
+        private long X;
+        private long Y;
+        private long Z;
+        private long K;
+        private long[] A;
+        private long[] B;
+        private long[] C;
+        
         public void Solve()
         {
-            Console.WriteLine(0);
+            Array.Sort(A);
+            Array.Sort(B);
+            Array.Sort(C);
+            Array.Reverse(A);
+            Array.Reverse(B);
+            Array.Reverse(C);
+            
+            // YとZの和を小さい順に並べる
+            List<long> yzList = new List<long>();
+            for (long y = 0; y < Y; y++)
+            {
+                for (long z = 0; z < Z; z++)
+                {
+                    yzList.Add(B[y] + C[z]);
+                }
+            }
+
+            yzList.Sort();
+            yzList.Reverse();
+            var c = Math.Min(K, yzList.Count);
+            long[] yz = new long[c];
+            for (long i = 0; i < c; i++)
+            {
+                yz[i] = yzList[(int)i];
+            }
+
+            List<long>xyzList = new List<long>();
+            for (long x = 0; x < X; x++)
+            {
+                for (long yzi = 0; yzi < c; yzi++)
+                {
+                    xyzList.Add(A[x] + yz[yzi]);
+                }
+            }
+            xyzList.Sort();
+            xyzList.Reverse();
+
+            for (long i = 0; i < K; i++)
+            {
+                Console.WriteLine(xyzList[(int)i]);
+            }
         }
     }
 }
