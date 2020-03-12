@@ -275,7 +275,7 @@ namespace Asakatsu20200312F
             {
                 foreach (long ai in A)
                 {
-                    if (dp[i].Count <= 0 || i + match[ai] > 420)
+                    if (dp[i].Count <= 0 || i + match[ai] > 420 || i + match[ai] > N)
                     {
                         continue;
                     }
@@ -291,29 +291,52 @@ namespace Asakatsu20200312F
                 }
             }
 
-            List<long> k = new List<long>();
+            List<long> k1 = new List<long>();
+            List<long> k2 = new List<long>();
+            List<long> k3 = new List<long>();
             long rest = N;
             for (long i = 1; i < 421; i++)
             {
-                if ((N - i) % bestPerfUse == 0 && dp[i].Count > 0)
+                if (k1.Count == 0 && (N - i) % bestPerfUse == 0 && dp[i].Count > 0)
                 {
-                    k = dp[i];
+                    k1 = dp[i];
                     rest = N - i;
-                    break;
+                }
+                else if (k2.Count == 0 && (N - i) % bestPerfUse == 0 && dp[i].Count > 0)
+                {
+                    k2 = dp[i];
+                    for (long j = 0; j < (rest - N + i) / bestPerfUse; j++)
+                    {
+                        k1.Add(bestPerf);
+                    }
+
+                    rest = N - i;
+                }
+                else if (k3.Count == 0 && (N - i) % bestPerfUse == 0 && dp[i].Count > 0)
+                {
+                    k3 = dp[i];
+                    for (long j = 0; j < (rest - N + i) / bestPerfUse; j++)
+                    {
+                        k1.Add(bestPerf);
+                        k2.Add(bestPerf);
+                    }
+
+                    rest = N - i;
                 }
             }
 
-            k.Remove(0);
+            var best = Comp(k1, Comp(k2, k3));
+            best.Remove(0);
             for (long i = 0; i < rest / bestPerfUse; i++)
             {
-                k.Add(bestPerf);
+                best.Add(bestPerf);
             }
 
-            k.Sort();
-            k.Reverse();
-            for (long i = 0; i < k.Count; i++)
+            best.Sort();
+            best.Reverse();
+            for (long i = 0; i < best.Count; i++)
             {
-                Console.Write(k[(int) i]);
+                Console.Write(best[(int) i]);
             }
 
             Console.WriteLine();
