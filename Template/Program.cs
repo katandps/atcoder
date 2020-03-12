@@ -194,7 +194,7 @@ namespace TaskName
 
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Solver solver = new Solver();
             solver.Solve();
@@ -203,9 +203,10 @@ namespace TaskName
 
     class Solver
     {
+        private Input input;
         public Solver()
         {
-            Input input = new Input();
+            input = new Input();
         }
 
         public void Solve()
