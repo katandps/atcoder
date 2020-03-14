@@ -229,7 +229,32 @@ namespace Asakatsu20200314F
 
         public void Solve()
         {
-            long[][][] dp = new long[H][][];
+            bool[][][] dp = new bool[H][][];
+            long M = 160 * 160;
+
+            for (long y = 0; y < H; y++)
+            {
+                dp[y] = new bool[W][];
+                for (long x = 0; x < W; x++)
+                {
+                    dp[y][x] = new bool[M];
+                }
+            }
+
+            dp[0][0][A[0][0] - B[0][0]] = true;
+            dp[0][0][B[0][0] - A[0][0]] = true;
+
+            for (long y = 0; y < H; y++)
+            {
+                for (long x = 0; x < W; x++)
+                {
+                    for (long m = 0; m < M; m++)
+                    {
+                        
+                    }
+                }
+            }
+
             Console.WriteLine(0);
         }
     }

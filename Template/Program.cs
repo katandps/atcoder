@@ -210,6 +210,15 @@ namespace TaskName
     {
         public static void Main(string[] args)
         {
+            StreamWriter streamWriter = new StreamWriter(Console.OpenStandardOutput()) {AutoFlush = false};
+            Console.SetOut(streamWriter);
+            Solver solver = new Solver();
+            solver.Solve();
+            Console.Out.Flush();
+        }
+
+        public static void Debug()
+        {
             Solver solver = new Solver();
             solver.Solve();
         }
