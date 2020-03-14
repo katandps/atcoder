@@ -218,14 +218,24 @@ namespace Panasonic2020B
     class Solver
     {
         private Input input;
+
         public Solver()
         {
             input = new Input();
+            input.Long(out H, out W);
         }
+
+        private long H;
+        private long W;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            if (H < 2 || W < 2)
+            {
+                Console.WriteLine(1);
+                return;
+            }
+            Console.WriteLine(H * W / 2 + (H * W % 2));
         }
     }
 }

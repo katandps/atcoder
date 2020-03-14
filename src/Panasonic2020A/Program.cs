@@ -218,14 +218,22 @@ namespace Panasonic2020A
     class Solver
     {
         private Input input;
+
         public Solver()
         {
             input = new Input();
+            input.Long(out K);
         }
+
+        private long K;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            long[] k =
+            {
+                1, 1, 1, 2, 1, 2, 1, 5, 2, 2, 1, 5, 1, 2, 1, 14, 1, 5, 1, 5, 2, 2, 1, 15, 2, 2, 5, 4, 1, 4, 1, 51
+            };
+            Console.WriteLine(k[K - 1]);
         }
     }
 }

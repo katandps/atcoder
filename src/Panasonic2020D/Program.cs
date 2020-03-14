@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace Panasonic2020D
@@ -210,6 +211,15 @@ namespace Panasonic2020D
     {
         public static void Main(string[] args)
         {
+            StreamWriter streamWriter = new StreamWriter(Console.OpenStandardOutput()) {AutoFlush = false};
+            Console.SetOut(streamWriter);
+            Solver solver = new Solver();
+            solver.Solve();
+            Console.Out.Flush();
+        }
+
+        public static void Debug()
+        {
             Solver solver = new Solver();
             solver.Solve();
         }
@@ -217,15 +227,55 @@ namespace Panasonic2020D
 
     class Solver
     {
-        private Input input;
+        private Input input = new Input();
+
         public Solver()
         {
-            input = new Input();
+            input.Long(out N);
         }
+
+        private long N;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            if (N == 1)
+            {
+                Console.WriteLine("a");
+                return;
+            }
+
+            List<int> s = new List<int>();
+            s.Add(0);
+            write((int) N, 1, 1, s);
+            foreach (string a in ans)
+            {
+                Console.WriteLine(a);
+            }
+        }
+
+        List<string> ans = new List<string>();
+
+        public void write(
+            int max,
+            int depth,
+            int chars,
+            List<int> a
+        )
+        {
+            if (max == depth)
+            {
+                char[] s = a.Select(i => (char) (i + 'a')).ToArray();
+                ans.Add(new string(s).Substring(0, (int) N));
+                return;
+            }
+
+            for (int c = 0; c < chars + 1; c++)
+            {
+                var cs = Math.Max(chars, c + 1);
+                List<int> newA = new List<int>(a);
+                newA.Add(c);
+                write(max, depth + 1, cs, newA);
+            }
         }
     }
 }
