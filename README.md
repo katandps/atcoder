@@ -11,6 +11,9 @@ bash MakeTask.sh {ContestName} {TaskNumber}
 ```
 
 (Riderで)実行するときはExplorerからprojectを選んでrun/debug
+
 ローカル実行ではinput.inに書かれた内容を標準入力として扱うようにしてある
+
 デフォルトでは出力の1行先に実行時間を出力する
+
 また、演算時のオーバーフローチェックをオンにしてある
