@@ -16,6 +16,15 @@ namespace Panasonic2020E
         }
 
         /// <summary>
+        /// 1行の入力を取得する
+        /// </summary>
+        /// <returns>文字列</returns>
+        public void String(out char[] s)
+        {
+            s = Console.ReadLine().ToCharArray();
+        }
+
+        /// <summary>
         /// 複数行の入力を取得
         /// </summary>
         /// <returns>文字列の配列</returns>
@@ -218,14 +227,71 @@ namespace Panasonic2020E
     class Solver
     {
         private Input input;
+
         public Solver()
         {
             input = new Input();
+            input.String(out a);
+            input.String(out b);
+            input.String(out c);
         }
+
+        private char[] a;
+        private char[] b;
+        private char[] c;
+
+        private const int M = 2000;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            bool[] ab = new bool[100000];
+            bool[] ac = new bool[100000];
+            bool[] bc = new bool[100000];
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                for (int j = 0; j < b.Length; j++)
+                {
+                    if (!match(a[i], b[j])) ab[i - j + 50000] = true;
+                }
+            }
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                for (int j = 0; j < c.Length; j++)
+                {
+                    if (!match(a[i], c[j])) ac[i - j + 50000] = true;
+                }
+            }
+
+            for (int i = 0; i < b.Length; i++)
+            {
+                for (int j = 0; j < c.Length; j++)
+                {
+                    if (!match(b[i], c[j])) bc[i - j + 50000] = true;
+                }
+            }
+
+            int ans = 3 * M;
+            for (int i = -2 * M; i <= 2 * M; i++)
+            {
+                for (int j = -2 * M; j <= 2 * M; j++)
+                {
+                    if (!ab[i + 50000] && !ac[j + 50000] && !bc[j - i + 50000])
+                    {
+                        var l = Math.Min(0, Math.Min(i, j));
+                        var r = Math.Max(a.Length, Math.Max(b.Length + i, c.Length + j));
+                        ans = Math.Min(ans, r - l);
+                    }
+                }
+            }
+
+            Console.WriteLine(ans);
+        }
+
+        bool match(char c1, char c2)
+        {
+            return c1 == '?' || c2 == '?' || c1 == c2;
         }
     }
 }
