@@ -163,6 +163,20 @@ namespace TaskName
             }
         }
 
+        /// <summary>
+        /// h行w列のLongのmapを入力する
+        /// </summary>
+        /// <param name="h"></param>
+        /// <param name="w"></param>
+        /// <param name="a"></param>
+        public void Long(long h, long w, out long[][] a)
+        {
+            a = new long[h][];
+            for (long i = 0; i < h; i++)
+            {
+                Long(out a[i]);
+            }
+        }
 
         /// <summary>
         /// 1行の入力を取得
