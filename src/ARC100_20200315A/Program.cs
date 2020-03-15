@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace ARC097D
+namespace ARC100_20200315A
 {
     class Input
     {
@@ -227,92 +227,35 @@ namespace ARC097D
 
     class Solver
     {
-        private Input input;
-
         public Solver()
         {
-            input = new Input();
-            input.Long(out N, out M);
-            input.Long(out P);
-            input.Long(M, out X, out Y);
+            Input input = new Input();
+            input.Long(out N);
+            input.Long(out A);
         }
 
         private long N;
-        private long M;
-        private long[] P;
-        private long[] X;
-        private long[] Y;
+        private long[] A;
 
         public void Solve()
         {
-            UnionFind uf = new UnionFind((int) N);
-
-            for (int i = 0; i < M; i++)
+            long[] B = new long[N];
+            for (int i = 0; i < N; i++)
             {
-                uf.Unite((int) X[i], (int) Y[i]);
+                A[i] -= i + 1;
+                B[i] = A[i];
             }
 
-            long score = N;
-            for (int i = 1; i <= N; i++)
+            Array.Sort(B);
+            var b = B[N / 2];
+            long[] C = new long[N];
+            for (int i = 0; i < N; i++)
             {
-                if (uf.Root(i) != uf.Root((int) P[i - 1])) score--;
+                A[i] -= b;
+                C[i] = Math.Abs(A[i]);
             }
 
-            Console.WriteLine(score);
-        }
-    }
-
-    public class UnionFind
-    {
-        private readonly int[] par;
-        private readonly int[] rank;
-
-        public UnionFind(int maxN)
-        {
-            par = new int[maxN + 1];
-            rank = new int[maxN + 1];
-            Init(maxN);
-        }
-
-        private void Init(int n)
-        {
-            for (var i = 1; i <= n; i++)
-            {
-                par[i] = i;
-                rank[i] = 0;
-            }
-        }
-
-        public int Root(int x)
-        {
-            if (par[x] == x) return x;
-            return par[x] = Root(par[x]);
-        }
-
-        public int Rank(int x)
-        {
-            return rank[x];
-        }
-
-        public bool Same(int x, int y)
-        {
-            return Root(x) == Root(y);
-        }
-
-        public void Unite(int x, int y)
-        {
-            x = Root(x);
-            y = Root(y);
-            if (x == y) return;
-            if (rank[x] < rank[y])
-            {
-                var tmp = x;
-                x = y;
-                y = tmp;
-            }
-
-            if (rank[x] == rank[y]) ++rank[x];
-            par[x] = y;
+            Console.WriteLine(C.Sum());
         }
     }
 }
