@@ -184,24 +184,18 @@ namespace TaskName
         {
             StreamWriter streamWriter = new StreamWriter(Console.OpenStandardOutput()) {AutoFlush = false};
             Console.SetOut(streamWriter);
-            Solver solver = new Solver();
-            solver.Solve();
+            new Solver().Solve();
             Console.Out.Flush();
         }
 
         public static void Debug()
         {
-            Solver solver = new Solver();
-            solver.Solve();
+            new Solver().Solve();
         }
     }
 
     class Solver
     {
-        public Solver()
-        {
-        }
-
         public void Solve()
         {
         }
