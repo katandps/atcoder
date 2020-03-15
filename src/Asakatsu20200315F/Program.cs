@@ -232,11 +232,93 @@ namespace Asakatsu20200315F
         public Solver()
         {
             input = new Input();
+            input.Long(out N);
+            input.Long(out A);
         }
+
+        private long N;
+        private long[] A;
+
+        private long[] Sum;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            Sum = new long[N + 1];
+            for (int i = 0; i < N; i++)
+            {
+                Sum[i + 1] = Sum[i] + A[i];
+            }
+
+            long ans = Sum[N];
+            // QとRの間の位置 Qはiまで許容する
+            for (int i = 2; i < N - 1; i++)
+            {
+                long pq = Sum[i];
+                long rs = Sum[N] - pq;
+
+                // pq, rsの間のうち、p, rがそれぞれ大きくなる最小のindex
+                // これより1小さいものも考慮に入れる必要あり
+                var pqPlusI = Search(0, i + 1);
+                var rsPlusI = Search(i, (int) N + 1);
+
+                // {p,q,r,s}
+                long[][] a = new long[4][];
+                a[0] = new[]
+                {
+                    Sum[pqPlusI],
+                    pq - Sum[pqPlusI],
+                    Sum[rsPlusI] - Sum[i],
+                    Sum[N] - Sum[rsPlusI]
+                };
+                a[1] = new[]
+                {
+                    Sum[pqPlusI - 1],
+                    pq - Sum[pqPlusI - 1],
+                    Sum[rsPlusI] - Sum[i],
+                    Sum[N] - Sum[rsPlusI]
+                };
+                a[2] = new[]
+                {
+                    Sum[pqPlusI],
+                    pq - Sum[pqPlusI],
+                    Sum[rsPlusI - 1] - pq,
+                    Sum[N] - Sum[rsPlusI - 1]
+                };
+                a[3] = new[]
+                {
+                    Sum[pqPlusI - 1],
+                    pq - Sum[pqPlusI - 1],
+                    Sum[rsPlusI - 1] - pq,
+                    Sum[N] - Sum[rsPlusI - 1]
+                };
+                ans = Math.Min(ans, a.Min(b => b.Max() - b.Min()));
+            }
+
+            Console.WriteLine(ans);
+        }
+
+        /// <summary>
+        /// 二分探索
+        /// </summary>
+        /// <returns>条件を満たす最小の値</returns>
+        long Search(int left, int right)
+        {
+            long ng = left;
+            long ok = right;
+
+            while (Math.Abs(ok - ng) > 1)
+            {
+                long mid = (ok + ng) / 2;
+                if (IsOK(mid, left, right)) ok = mid;
+                else ng = mid;
+            }
+
+            return ok;
+        }
+
+        bool IsOK(long key, int left, int right)
+        {
+            return Sum[key] - Sum[left] - Sum[right - 1] + Sum[key] > 0;
         }
     }
 }

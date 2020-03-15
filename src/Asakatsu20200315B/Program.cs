@@ -228,14 +228,33 @@ namespace Asakatsu20200315B
     class Solver
     {
         private Input input;
+
         public Solver()
         {
             input = new Input();
+            input.Long(out D, out N);
         }
+
+        private long D;
+        private long N;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            int cnt = 0;
+            int pow = (int) Math.Pow(100, D);
+            for (int i = 0; i < 10000000; i++)
+            {
+                if (i % pow == 0 && i / pow % 100 != 0)
+                {
+                    cnt++;
+                }
+
+                if (cnt == N)
+                {
+                    Console.WriteLine(i);
+                    return;
+                }
+            }
         }
     }
 }

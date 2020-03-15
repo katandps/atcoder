@@ -228,14 +228,54 @@ namespace Asakatsu20200315D
     class Solver
     {
         private Input input;
+
         public Solver()
         {
             input = new Input();
+            input.Long(out H, out W);
+            input.Long(out N);
+            input.Long(out A);
         }
+
+        private long H;
+        private long W;
+        private long N;
+        private long[] A;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            Queue<long> q = new Queue<long>();
+            for (int i = 0; i < N; i++)
+            {
+                for (int j = 0; j < A[i]; j++)
+                {
+                    q.Enqueue(i + 1);
+                }
+            }
+
+            for (int i = 0; i < H; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    long[] l = new long[W];
+                    for (int j = 0; j < W; j++)
+                    {
+                        l[j] = q.Dequeue();
+                    }
+
+                    Console.WriteLine(String.Join(" ", l.Select(a => a.ToString())));
+                }
+                else
+                {
+                    long[] l = new long[W];
+                    for (long j = W - 1; j >= 0; j--)
+                    {
+                        l[j] = q.Dequeue();
+                    }
+
+                    Console.WriteLine(String.Join(" ", l.Select(a => a.ToString())));
+                }
+            }
         }
     }
 }

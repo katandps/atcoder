@@ -228,14 +228,20 @@ namespace Asakatsu20200315A
     class Solver
     {
         private Input input;
+
         public Solver()
         {
             input = new Input();
+            input.Long(out N);
+            input.String(out S);
         }
+
+        private long N;
+        private string S;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            Console.WriteLine(S.Contains('Y') ? "Four" : "Three");
         }
     }
 }

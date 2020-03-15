@@ -228,14 +228,106 @@ namespace Asakatsu20200315E
     class Solver
     {
         private Input input;
+
         public Solver()
         {
             input = new Input();
+            input.Long(out N);
+            input.String(out S);
+            input.Long(out QN);
+            input.String(QN, out Q);
         }
+
+        private long N;
+        private string S;
+        private long QN;
+        private string[] Q;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            Dictionary<char, BinaryIndexedTree> bit = new Dictionary<char, BinaryIndexedTree>();
+            for (int i = 0; i < 26; i++)
+            {
+                bit.Add((char) ('a' + i), new BinaryIndexedTree((int) N + 1));
+            }
+
+            for (int i = 0; i < N; i++)
+            {
+                bit[S[i]].Add(i + 1, 1);
+            }
+
+            char[] C = S.ToCharArray();
+            foreach (string q in Q)
+            {
+                string[] qq = q.Split(' ');
+                if (qq[0] == "1")
+                {
+                    var i = int.Parse(qq[1]);
+                    char c = qq[2][0];
+                    if (C[i - 1] == c) continue;
+                    bit[C[i - 1]].Add(i, -1);
+                    bit[c].Add(i, 1);
+                    C[i - 1] = c;
+                }
+                else
+                {
+                    //q2
+                    var l = int.Parse(qq[1]);
+                    var r = int.Parse(qq[2]);
+
+                    int count = 0;
+                    for (char i = 'a'; i <= 'z'; i++)
+                    {
+                        //Console.WriteLine("" + i + " " + bit[i].Sum(r) + " " + bit[i].Sum(l));
+                        if (bit[i].Sum(r) != bit[i].Sum(l - 1)) count++;
+                    }
+
+                    Console.WriteLine(count);
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// BIT
+    /// </summary>
+    class BinaryIndexedTree
+    {
+        private int[] _bit = new int[1000000];
+        private int _n;
+
+        public BinaryIndexedTree(int n)
+        {
+            _n = n;
+        }
+
+        /// <summary>
+        /// a に wを足す
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="w"></param>
+        public void Add(int a, int w)
+        {
+            for (int x = a; x <= _n; x += (x & -x))
+            {
+                _bit[x] += w;
+            }
+        }
+
+        /// <summary>
+        /// a番目の値の合計値を取る
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public int Sum(int a)
+        {
+            int ret = 0;
+            for (int x = a; x > 0; x -= (x & -x))
+            {
+                ret += _bit[x];
+            }
+
+            return ret;
         }
     }
 }

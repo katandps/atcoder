@@ -228,14 +228,22 @@ namespace Asakatsu20200315C
     class Solver
     {
         private Input input;
+
         public Solver()
         {
             input = new Input();
+            input.Long(out A, out B);
         }
+
+        private long A;
+        private long B;
 
         public void Solve()
         {
-            Console.WriteLine(0);
+            long four = ((B - B % 4) - (A + 3 - (A + 3) % 4)) / 4 + 1;
+            long hundred = ((B - B % 100) - (A + 99 - (A + 99) % 100)) / 100 + 1;
+            long fourHundreds = ((B - B % 400) - (A + 399 - (A + 399) % 400)) / 400 + 1;
+            Console.WriteLine(four - hundred + fourHundreds);
         }
     }
 }
