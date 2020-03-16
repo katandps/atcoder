@@ -9,11 +9,13 @@ fi
 CONTEST=$1
 TASKNUMBER=$2
 
+cd Template || exit
+ln -s ../src/Libraries/Local.cs
+ln -s ../src/Libraries/Program.cs
+cd - || exit
+
 dotnet new -u "$(pwd)"/Template
 dotnet new -i Template
-
-cp src/Libraries/Local.cs Template/Local.cs
-cp src/Libraries/Program.cs Template/Program.cs
 
 cd src || exit
 
