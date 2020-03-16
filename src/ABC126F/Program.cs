@@ -1,46 +1,242 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using static ABC126F.Input;
 
 namespace ABC126F
 {
-    class Program
+    class Input
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// 1行の文字列の入力
+        /// </summary>
+        public static void @in(out string s)
         {
-            long[] NK = CIN.LongArray();
+            s = String();
         }
-    }
 
-    internal static class CIN
-    {
-        public static string String()
+        private static String String()
         {
             return Console.ReadLine();
         }
 
-        public static int Int()
+        /// <summary>
+        /// 複数行の文字列の入力
+        /// </summary>
+        public static void @in(long rowNumber, out string[] s)
         {
-            return int.Parse(Console.ReadLine());
+            s = new String[rowNumber];
+            for (long i = 0; i < rowNumber; i++) @in(out s[i]);
         }
 
-        public static int[] IntArray()
+        /// <summary>
+        /// 1行に書かれた1つの整数の入力
+        /// </summary>
+        public static void @in(out int i)
         {
-            return Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+            i = int.Parse(String());
         }
 
-        public static long Long()
+        /// <summary>
+        /// 1行に書かれた1つの整数の入力
+        /// </summary>
+        public static void @in(out long a)
         {
-            return long.Parse(Console.ReadLine());
+            a = Long()[0];
         }
 
-        public static long[] LongArray()
+        /// <summary>
+        /// 1行に書かれた2つの整数の入力
+        /// </summary>
+        public static void @in(out long a, out long b)
         {
-            return Console.ReadLine().Split(' ').Select(long.Parse).ToArray();
+            long[] lArr = Long();
+            a = lArr[0];
+            b = lArr[1];
         }
 
-        public static double[] DoubleArray()
+        /// <summary>
+        /// 1行に書かれた3つの整数の入力
+        /// </summary>
+        public static void @in(out long a, out long b, out long c)
         {
-            return Console.ReadLine().Split(' ').Select(double.Parse).ToArray();
+            long[] lArr = Long();
+            a = lArr[0];
+            b = lArr[1];
+            c = lArr[2];
+        }
+
+        /// <summary>
+        /// 1行に書かれた4つの整数の入力
+        /// </summary>
+        public static void @in(out long a, out long b, out long c, out long d)
+        {
+            long[] lArr = Long();
+            a = lArr[0];
+            b = lArr[1];
+            c = lArr[2];
+            d = lArr[3];
+        }
+
+        /// <summary>
+        /// 1行に書かれた5つの整数の入力
+        /// </summary>
+        public static void @in(out long a, out long b, out long c, out long d, out long e)
+        {
+            long[] lArr = Long();
+            a = lArr[0];
+            b = lArr[1];
+            c = lArr[2];
+            d = lArr[3];
+            e = lArr[4];
+        }
+
+        private static long[] Long()
+        {
+            return Split().Select(long.Parse).ToArray();
+        }
+
+        /// <summary>
+        /// 1行に書かれた複数の整数列の入力
+        /// </summary>
+        public static void @in(out long[] lArr)
+        {
+            lArr = Long();
+        }
+
+        /// <summary>
+        /// rowNumber行に書かれた1つの整数列の入力
+        /// </summary>
+        public static void @in(long rowNumber, out long[] lArr)
+        {
+            lArr = new long[rowNumber];
+            for (long i = 0; i < rowNumber; i++) @in(out lArr[i]);
+        }
+
+        /// <summary>
+        /// rowNumber行に書かれた2つの整数列の入力
+        /// </summary>
+        public static void @in(long rowNumber, out long[] a, out long[] b)
+        {
+            a = new long[rowNumber];
+            b = new long[rowNumber];
+            for (int i = 0; i < rowNumber; i++) @in(out a[i], out b[i]);
+        }
+
+        /// <summary>
+        /// rowNumber行に書かれた3つの整数列の入力
+        /// </summary>
+        public static void @in(long rowNumber, out long[] a, out long[] b, out long[] c)
+        {
+            a = new long[rowNumber];
+            b = new long[rowNumber];
+            c = new long[rowNumber];
+            for (int i = 0; i < rowNumber; i++) @in(out a[i], out b[i], out c[i]);
+        }
+
+        /// <summary>
+        /// rowNumber行に書かれた4つの整数列の入力
+        /// </summary>
+        public static void @in(long rowNumber, out long[] a, out long[] b, out long[] c, out long[] d)
+        {
+            a = new long[rowNumber];
+            b = new long[rowNumber];
+            c = new long[rowNumber];
+            d = new long[rowNumber];
+            for (int i = 0; i < rowNumber; i++) @in(out a[i], out b[i], out c[i], out d[i]);
+        }
+
+        /// <summary>
+        /// h行w列の整数の行列の入力
+        /// </summary>
+        public static void @in(long h, long w, out long[][] a)
+        {
+            a = new long[h][];
+            for (long i = 0; i < h; i++) @in(out a[i]);
+        }
+
+        /// <summary>
+        /// 1行に書かれた1つの小数の入力
+        /// </summary>
+        public static void @in(out double d)
+        {
+            d = double.Parse(String());
+        }
+
+        /// <summary>
+        /// 1行に書かれた小数の配列の入力
+        /// </summary>
+        public static void @in(out double[] dArr)
+        {
+            dArr = Split().Select(double.Parse).ToArray();
+        }
+
+        private static IEnumerable<string> Split()
+        {
+            return String().Split(' ');
+        }
+    }
+
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            StreamWriter streamWriter = new StreamWriter(Console.OpenStandardOutput()) {AutoFlush = false};
+            Console.SetOut(streamWriter);
+            new Solver().Solve();
+            Console.Out.Flush();
+        }
+
+        public static void Debug()
+        {
+            new Solver().Solve();
+        }
+    }
+
+    class Solver
+    {
+        private long M;
+        private long K;
+
+        public void Solve()
+        {
+            @in(out M, out K);
+
+            long m = (long) Math.Pow(2, M);
+
+            if (K == 0)
+            {
+                for (int i = 0; i < m; i++)
+                {
+                    Console.Write("" + i + " " + i + " ");
+                }
+
+                Console.WriteLine();
+                return;
+            }
+
+            if (K > m - 1 || M == 1)
+            {
+                Console.WriteLine(-1);
+                return;
+            }
+
+            Console.Write("" + K + " ");
+            for (int i = 0; i < m; i++)
+            {
+                if (i == K) continue;
+                Console.Write("" + i + " ");
+            }
+
+            Console.Write("" + K + " ");
+            for (int i = (int) m - 1; i >= 0; i--)
+            {
+                if (i == K) continue;
+                Console.Write("" + i + " ");
+            }
+
+            Console.WriteLine();
         }
     }
 }
