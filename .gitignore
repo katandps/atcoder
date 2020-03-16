@@ -1,6 +1,7 @@
 .idea
 obj
 bin
+Template/*.cs
 
 Thumbs.db
 .DS_Store
