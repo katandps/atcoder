@@ -173,8 +173,27 @@ namespace ABC085C
 
     class Solver
     {
+        private long N;
+        private long Y;
+
         public void Solve()
         {
+            @in(out N, out Y);
+            for (int i = 0; i <= N; i++)
+            {
+                for (long j = 0; j <= N - i; j++)
+                {
+                    long k = N - i - j;
+
+                    if (i * 10000 + j * 5000 + k * 1000 == Y)
+                    {
+                        Console.WriteLine("{0} {1} {2}", i, j, k);
+                        return;
+                    }
+                }
+            }
+
+            Console.WriteLine("-1 -1 -1");
         }
     }
 }

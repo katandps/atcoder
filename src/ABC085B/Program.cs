@@ -173,8 +173,20 @@ namespace ABC085B
 
     class Solver
     {
+        private long N;
+        private long[] D;
+
         public void Solve()
         {
+            @in(out N);
+            @in(N, out D);
+            HashSet<long> h = new HashSet<long>();
+            foreach (long d in D)
+            {
+                h.Add(d);
+            }
+
+            Console.WriteLine(h.Count);
         }
     }
 }

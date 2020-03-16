@@ -173,8 +173,45 @@ namespace ABC085D
 
     class Solver
     {
+        private long N;
+        private long H;
+        private long[] A;
+        private long[] B;
+
         public void Solve()
         {
+            @in(out N, out H);
+            @in(N, out A, out B);
+
+            long inf = A.Max();
+            Array.Sort(B);
+            Array.Reverse(B);
+            long ans = 0;
+            long sum = 0;
+            for (int i = 0; i < N; i++)
+            {
+                if (sum >= H)
+                {
+                    break;
+                }
+
+                if (B[i] <= inf)
+                {
+                    ans += (H - sum + inf - 1) / inf;
+                    sum = H;
+                    break;
+                }
+
+                ans++;
+                sum += B[i];
+            }
+
+            if (sum < H)
+            {
+                ans += (H - sum + inf - 1) / inf;
+            }
+
+            Console.WriteLine(ans);
         }
     }
 }

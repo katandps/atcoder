@@ -173,8 +173,39 @@ namespace ABC084B
 
     class Solver
     {
+        private long A;
+        private long B;
+        private string S;
+
         public void Solve()
         {
+            @in(out A, out B);
+            @in(out S);
+            for (int i = 0; i < A; i++)
+            {
+                if (S[i] > '9' || S[i] < '0')
+                {
+                    Console.WriteLine("No");
+                    return;
+                }
+            }
+
+            if (S[(int) A] != '-')
+            {
+                Console.WriteLine("No");
+                return;
+            }
+
+            for (int i = 0; i < B; i++)
+            {
+                if (S[(int) A + i + 1] > '9' || S[(int) A + i + 1] < '0')
+                {
+                    Console.WriteLine("No");
+                    return;
+                }
+            }
+
+            Console.WriteLine("Yes");
         }
     }
 }

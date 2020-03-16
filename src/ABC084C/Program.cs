@@ -173,8 +173,31 @@ namespace ABC084C
 
     class Solver
     {
+        private long N;
+        private long[] C;
+        private long[] S;
+        private long[] F;
+
         public void Solve()
         {
+            @in(out N);
+            @in(N - 1, out C, out S, out F);
+
+            for (int j = 0; j < N; j++)
+            {
+                long ans = 0;
+                for (int i = j; i < N - 1; i++)
+                {
+                    if (ans < S[i]) ans = S[i] + C[i];
+                    else
+                    {
+                        if (ans % F[i] == 0) ans += C[i];
+                        else ans += (F[i] - ans % F[i]) + C[i];
+                    }
+                }
+
+                Console.WriteLine(ans);
+            }
         }
     }
 }

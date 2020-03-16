@@ -173,8 +173,13 @@ namespace ABC085A
 
     class Solver
     {
+        private string S;
+
         public void Solve()
         {
+            @in(out S);
+            Console.Write("2018");
+            Console.WriteLine(S.Substring(4));
         }
     }
 }

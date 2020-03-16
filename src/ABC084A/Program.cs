@@ -173,8 +173,12 @@ namespace ABC084A
 
     class Solver
     {
+        private long M;
+
         public void Solve()
         {
+            @in(out M);
+            Console.WriteLine(48 - M);
         }
     }
 }

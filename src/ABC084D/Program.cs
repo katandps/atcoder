@@ -173,8 +173,62 @@ namespace ABC084D
 
     class Solver
     {
+        private long Q;
+        private long[] l;
+        private long[] r;
+
         public void Solve()
         {
+            @in(out Q);
+            @in(Q, out l, out r);
+
+            long max = r.Max();
+            var p = Primes(max);
+            long[] count = new long[max + 1];
+            for (int i = 1; i <= max; i++)
+            {
+                count[i] = count[i - 1];
+                if (i % 2 == 0)
+                {
+                    continue;
+                }
+
+                if (p.Contains(i) && p.Contains((i + 1) / 2))
+                {
+                    count[i]++;
+                }
+            }
+
+            for (int i = 0; i < Q; i++)
+            {
+                Console.WriteLine(count[r[i]] - count[l[i] - 1]);
+            }
+        }
+
+        /// m以下の素数を列挙する
+        HashSet<long> Primes(long m)
+        {
+            HashSet<long> l = new HashSet<long>();
+            bool[] b = new bool[m + 1];
+            b[0] = true;
+            b[1] = true;
+            for (int i = 2; i < m; i++)
+            {
+                for (int j = 2; i * j <= m; j++)
+                {
+                    b[i * j] = true;
+                }
+            }
+
+            for (int i = 2; i <= m; i++)
+            {
+                if (!b[i])
+                {
+                    l.Add(i);
+                }
+            }
+
+            return l;
         }
     }
 }
