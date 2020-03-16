@@ -28,9 +28,9 @@
     },
     "taskName": {
       "type": "parameter",
-      "defaultValue": "NewTask",
+      "defaultValue": "Libraries",
       "description": "AtCoder Task Name",
-      "replaces": "TaskName"
+      "replaces": "Libraries"
     }
   },
   "postActions": [

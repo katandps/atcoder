@@ -2,24 +2,23 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using static TaskName.Input;
+using static Libraries.Input;
+using static System.Math;
 
-namespace TaskName
+namespace Libraries
 {
     class Input
     {
+        private static String String() => Console.ReadLine();
+
+        private static IEnumerable<string> Split() => String().Split(' ');
+
+        private static long[] Long() => Split().Select(long.Parse).ToArray();
+
         /// <summary>
         /// 1行の文字列の入力
         /// </summary>
-        public static void @in(out string s)
-        {
-            s = String();
-        }
-
-        private static String String()
-        {
-            return Console.ReadLine();
-        }
+        public static void @in(out string s) => s = String();
 
         /// <summary>
         /// 複数行の文字列の入力
@@ -41,10 +40,7 @@ namespace TaskName
         /// <summary>
         /// 1行に書かれた1つの整数の入力
         /// </summary>
-        public static void @in(out long a)
-        {
-            a = Long()[0];
-        }
+        public static void @in(out long a) => a = Long()[0];
 
         /// <summary>
         /// 1行に書かれた2つの整数の入力
@@ -92,18 +88,10 @@ namespace TaskName
             e = lArr[4];
         }
 
-        private static long[] Long()
-        {
-            return Split().Select(long.Parse).ToArray();
-        }
-
         /// <summary>
         /// 1行に書かれた複数の整数列の入力
         /// </summary>
-        public static void @in(out long[] lArr)
-        {
-            lArr = Long();
-        }
+        public static void @in(out long[] lArr) => lArr = Long();
 
         /// <summary>
         /// rowNumber行に書かれた1つの整数列の入力
@@ -159,23 +147,12 @@ namespace TaskName
         /// <summary>
         /// 1行に書かれた1つの小数の入力
         /// </summary>
-        public static void @in(out double d)
-        {
-            d = double.Parse(String());
-        }
+        public static void @in(out double d) => d = double.Parse(String());
 
         /// <summary>
         /// 1行に書かれた小数の配列の入力
         /// </summary>
-        public static void @in(out double[] dArr)
-        {
-            dArr = Split().Select(double.Parse).ToArray();
-        }
-
-        private static IEnumerable<string> Split()
-        {
-            return String().Split(' ');
-        }
+        public static void @in(out double[] dArr) => dArr = Split().Select(double.Parse).ToArray();
     }
 
     class Program
