@@ -12,7 +12,11 @@ TASKNUMBER=$2
 dotnet new -u "$(pwd)"/Template
 dotnet new -i Template
 
+cp src/Libraries/Local.cs Template/Local.cs
+cp src/Libraries/Program.cs Template/Program.cs
+
 cd src || exit
+
 
 A=65 #アスキーコード
 END=$((A+TASKNUMBER-1))
