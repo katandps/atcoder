@@ -3,156 +3,122 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using static Libraries.Input;
-using static System.Math;
 
 namespace Libraries
 {
-    class Input
+    static class Input
     {
-        private static String String() => Console.ReadLine();
-
-        private static IEnumerable<string> Split() => String().Split(' ');
-
-        private static long[] Long() => Split().Select(long.Parse).ToArray();
+        /// <summary>
+        /// 1行の入力をTに応じてリストに変換する関数を返す
+        /// </summary>
+        static Func<string, List<T>> Cast<T>() => _ => _.Split(' ').Select(Convert<T>()).ToList();
 
         /// <summary>
-        /// 1行の文字列の入力
+        /// 1行の入力をTに応じて変換する関数を返す
         /// </summary>
-        public static void @in(out string s) => s = String();
-
-        /// <summary>
-        /// 複数行の文字列の入力
-        /// </summary>
-        public static void @in(long rowNumber, out string[] s)
+        static Func<string, T> Convert<T>()
         {
-            s = new String[rowNumber];
-            for (long i = 0; i < rowNumber; i++) @in(out s[i]);
+            Type t = typeof(T);
+            if (t == typeof(string)) return _ => (T) (object) _;
+            if (t == typeof(int)) return _ => (T) (object) int.Parse(_);
+            if (t == typeof(long)) return _ => (T) (object) long.Parse(_);
+            if (t == typeof(double)) return _ => (T) (object) double.Parse(_);
+            if (t == typeof(List<string>)) return _ => (T) (object) Cast<string>()(_);
+            if (t == typeof(List<int>)) return _ => (T) (object) Cast<int>()(_);
+            if (t == typeof(List<long>)) return _ => (T) (object) Cast<long>()(_);
+            if (t == typeof(List<double>)) return _ => (T) (object) Cast<double>()(_);
+
+            throw new NotSupportedException(t + "is not supported.");
+        }
+
+        static string String() => Console.ReadLine();
+
+        static List<string> String(long rowNumber) => new bool[rowNumber].Select(_ => String()).ToList();
+
+        static void Set<T>(List<T> s, out T o1) => o1 = s[0];
+
+        static void Set<T>(List<T> s, out T o1, out T o2)
+        {
+            o1 = s[0];
+            o2 = s[1];
+        }
+
+        static void Set<T>(List<T> s, out T o1, out T o2, out T o3)
+        {
+            o1 = s[0];
+            o2 = s[1];
+            o3 = s[2];
+        }
+        static void Set<T>(List<T> s, out T o1, out T o2, out T o3, out T o4)
+        {
+            o1 = s[0];
+            o2 = s[1];
+            o3 = s[2];
+            o4 = s[3];
+        }
+        static void Set<T>(List<T> s, out T o1, out T o2, out T o3, out T o4, out T o5)
+        {
+            o1 = s[0];
+            o2 = s[1];
+            o3 = s[2];
+            o4 = s[3];
+            o5 = s[4];
+        }
+        static void Set<T>(List<T> s, out T o1, out T o2, out T o3, out T o4, out T o5, out T o6)
+        {
+            o1 = s[0];
+            o2 = s[1];
+            o3 = s[2];
+            o4 = s[3];
+            o5 = s[4];
+            o6 = s[5];
         }
 
         /// <summary>
-        /// 1行に書かれた1つの整数の入力
+        /// 1行の値の入力
         /// </summary>
-        public static void @in(out int i)
-        {
-            i = int.Parse(String());
-        }
+        public static void @in<T>(out T a) =>
+            Set(Convert<List<T>>()(String()), out a);
+
+        public static void @in<T>(out T a1, out T a2) =>
+            Set(Convert<List<T>>()(String()), out a1, out a2);
+
+        public static void @in<T>(out T a1, out T a2, out T a3) =>
+            Set(Convert<List<T>>()(String()), out a1, out a2, out a3);
+
+        public static void @in<T>(out T a1, out T a2, out T a3, out T a4) =>
+            Set(Convert<List<T>>()(String()), out a1, out a2, out a3, out a4);
+
+        public static void @in<T>(out T a1, out T a2, out T a3, out T a4, out T a5) =>
+            Set(Convert<List<T>>()(String()), out a1, out a2, out a3, out a4, out a5);
+
+        public static void @in<T>(out T a1, out T a2, out T a3, out T a4, out T a5, out T a6) =>
+            Set(Convert<List<T>>()(String()), out a1, out a2, out a3, out a4, out a5, out a6);
+
 
         /// <summary>
-        /// 1行に書かれた1つの整数の入力
+        /// 複数行の値の入力
         /// </summary>
-        public static void @in(out long a) => a = Long()[0];
+        public static void @in<T>(long rowNumber, out List<T> l) => l = String(rowNumber).Select(Convert<T>()).ToList();
+
+        public static void @in<T>(long rowNumber, out List<T> l1, out List<T> l2) =>
+            Set(String(rowNumber).Select(Convert<List<T>>()).ToList(), out l1, out l2);
+
+        public static void @in<T>(long rowNumber, out List<T> l1, out List<T> l2, out List<T> l3) =>
+            Set(String(rowNumber).Select(Convert<List<T>>()).ToList(), out l1, out l2, out l3);
+
+        public static void @in<T>(long rowNumber, out List<T> l1, out List<T> l2, out List<T> l3, out List<T> l4) =>
+            Set(String(rowNumber).Select(Convert<List<T>>()).ToList(), out l1, out l2, out l3, out l4);
 
         /// <summary>
-        /// 1行に書かれた2つの整数の入力
+        /// 1行に書かれた複数の値の入力
         /// </summary>
-        public static void @in(out long a, out long b)
-        {
-            long[] lArr = Long();
-            a = lArr[0];
-            b = lArr[1];
-        }
+        public static void @in<T>(out List<T> lArr) => lArr = Convert<List<T>>()(String());
 
         /// <summary>
-        /// 1行に書かれた3つの整数の入力
+        /// h行の行列の入力
         /// </summary>
-        public static void @in(out long a, out long b, out long c)
-        {
-            long[] lArr = Long();
-            a = lArr[0];
-            b = lArr[1];
-            c = lArr[2];
-        }
-
-        /// <summary>
-        /// 1行に書かれた4つの整数の入力
-        /// </summary>
-        public static void @in(out long a, out long b, out long c, out long d)
-        {
-            long[] lArr = Long();
-            a = lArr[0];
-            b = lArr[1];
-            c = lArr[2];
-            d = lArr[3];
-        }
-
-        /// <summary>
-        /// 1行に書かれた5つの整数の入力
-        /// </summary>
-        public static void @in(out long a, out long b, out long c, out long d, out long e)
-        {
-            long[] lArr = Long();
-            a = lArr[0];
-            b = lArr[1];
-            c = lArr[2];
-            d = lArr[3];
-            e = lArr[4];
-        }
-
-        /// <summary>
-        /// 1行に書かれた複数の整数列の入力
-        /// </summary>
-        public static void @in(out long[] lArr) => lArr = Long();
-
-        /// <summary>
-        /// rowNumber行に書かれた1つの整数列の入力
-        /// </summary>
-        public static void @in(long rowNumber, out long[] lArr)
-        {
-            lArr = new long[rowNumber];
-            for (long i = 0; i < rowNumber; i++) @in(out lArr[i]);
-        }
-
-        /// <summary>
-        /// rowNumber行に書かれた2つの整数列の入力
-        /// </summary>
-        public static void @in(long rowNumber, out long[] a, out long[] b)
-        {
-            a = new long[rowNumber];
-            b = new long[rowNumber];
-            for (int i = 0; i < rowNumber; i++) @in(out a[i], out b[i]);
-        }
-
-        /// <summary>
-        /// rowNumber行に書かれた3つの整数列の入力
-        /// </summary>
-        public static void @in(long rowNumber, out long[] a, out long[] b, out long[] c)
-        {
-            a = new long[rowNumber];
-            b = new long[rowNumber];
-            c = new long[rowNumber];
-            for (int i = 0; i < rowNumber; i++) @in(out a[i], out b[i], out c[i]);
-        }
-
-        /// <summary>
-        /// rowNumber行に書かれた4つの整数列の入力
-        /// </summary>
-        public static void @in(long rowNumber, out long[] a, out long[] b, out long[] c, out long[] d)
-        {
-            a = new long[rowNumber];
-            b = new long[rowNumber];
-            c = new long[rowNumber];
-            d = new long[rowNumber];
-            for (int i = 0; i < rowNumber; i++) @in(out a[i], out b[i], out c[i], out d[i]);
-        }
-
-        /// <summary>
-        /// h行w列の整数の行列の入力
-        /// </summary>
-        public static void @in(long h, long w, out long[][] a)
-        {
-            a = new long[h][];
-            for (long i = 0; i < h; i++) @in(out a[i]);
-        }
-
-        /// <summary>
-        /// 1行に書かれた1つの小数の入力
-        /// </summary>
-        public static void @in(out double d) => d = double.Parse(String());
-
-        /// <summary>
-        /// 1行に書かれた小数の配列の入力
-        /// </summary>
-        public static void @in(out double[] dArr) => dArr = Split().Select(double.Parse).ToArray();
+        public static void @in<T>(long h, out List<List<T>> map) => map = String(h).Select(Convert<List<T>>()).ToList();
     }
 
     class Program
@@ -173,8 +139,27 @@ namespace Libraries
 
     class Solver
     {
+        private long A;
+        private long B;
+        private long C;
+        private long D;
+        private long E;
+        private List<string> s;
+        private List<long> m;
+        private List<double> d;
+        private List<long> u;
+        private List<long> v;
+        private List<List<long>> map;
+
         public void Solve()
         {
+            @in(out A, out B, out C, out D, out E);
+            @in(out s);
+            @in(3, out m);
+            @in(2, out d);
+            @in(3, out u, out v);
+            @in(3, out map);
+            Console.WriteLine(1);
         }
     }
 }
