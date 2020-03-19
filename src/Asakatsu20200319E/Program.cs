@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using static ABC113D.Input;
+using static Asakatsu20200319E.Input;
 
-namespace ABC113D
+namespace Asakatsu20200319E
 {
     static class Input
     {
@@ -90,44 +90,46 @@ namespace ABC113D
         /// </summary>
         public static void @in<T>(long rowNumber, out List<T> l) => l = String(rowNumber).Select(Convert<T>()).ToList();
 
-        public static void @in<T>(long rowNumber, out List<T> l1, out List<T> l2)
+        public static void @in<T1, T2>(long rowNumber, out List<T1> l1, out List<T2> l2)
         {
-            l1 = new List<T>();
-            l2 = new List<T>();
-            foreach (List<T> l in String(rowNumber).Select(Convert<List<T>>()))
+            l1 = new List<T1>();
+            l2 = new List<T2>();
+            foreach (List<string> l in String(rowNumber).Select(Convert<List<string>>()))
             {
-                l1.Add(l[0]);
-                l2.Add(l[1]);
+                l1.Add(Convert<T1>()(l[0]));
+                l2.Add(Convert<T2>()(l[1]));
             }
         }
 
-        public static void @in<T>(long rowNumber, out List<T> l1, out List<T> l2, out List<T> l3)
+        public static void @in<T1, T2, T3>(long rowNumber, out List<T1> l1, out List<T2> l2, out List<T3> l3)
         {
-            l1 = new List<T>();
-            l2 = new List<T>();
-            l3 = new List<T>();
-            foreach (List<T> l in String(rowNumber).Select(Convert<List<T>>()))
+            l1 = new List<T1>();
+            l2 = new List<T2>();
+            l3 = new List<T3>();
+            foreach (List<string> l in String(rowNumber).Select(Convert<List<string>>()))
             {
-                l1.Add(l[0]);
-                l2.Add(l[1]);
-                l3.Add(l[2]);
+                l1.Add(Convert<T1>()(l[0]));
+                l2.Add(Convert<T2>()(l[1]));
+                l3.Add(Convert<T3>()(l[2]));
             }
         }
 
-        public static void @in<T>(long rowNumber, out List<T> l1, out List<T> l2, out List<T> l3, out List<T> l4)
+        public static void @in<T1, T2, T3, T4>(long rowNumber, out List<T1> l1, out List<T2> l2, out List<T3> l3,
+            out List<T4> l4)
         {
-            l1 = new List<T>();
-            l2 = new List<T>();
-            l3 = new List<T>();
-            l4 = new List<T>();
-            foreach (List<T> l in String(rowNumber).Select(Convert<List<T>>()))
+            l1 = new List<T1>();
+            l2 = new List<T2>();
+            l3 = new List<T3>();
+            l4 = new List<T4>();
+            foreach (List<string> l in String(rowNumber).Select(Convert<List<string>>()))
             {
-                l1.Add(l[0]);
-                l2.Add(l[1]);
-                l3.Add(l[2]);
-                l4.Add(l[3]);
+                l1.Add(Convert<T1>()(l[0]));
+                l2.Add(Convert<T2>()(l[1]));
+                l3.Add(Convert<T3>()(l[2]));
+                l4.Add(Convert<T4>()(l[3]));
             }
         }
+
 
         /// <summary>
         /// 1行に書かれた複数の値の入力
@@ -158,72 +160,77 @@ namespace ABC113D
 
     class Solver
     {
-        private long H;
-        private long W;
-        private long K;
+        private int N;
+        private Dictionary<string, Modular>[] memo;
+        private string ACGT = "ACGT";
 
         public void Solve()
         {
-            @in(out H, out W, out K);
+            @in(out N);
 
-            int fall = 0;
-            int p = (int) Math.Pow(2, W - 1);
-            // 全探索
-            for (int i = 0; i < p; i++)
+            memo = new Dictionary<string, Modular>[N + 1];
+            for (int i = 0; i <= N; i++)
             {
-                bool invalidate = false;
-                var n = i;
-                bool before = false;
-                for (int j = 0; j < W - 1; j++)
-                {
-                    int bit = n % 2;
-                    n = n >> 1;
-                    if (bit != 0 && before)
-                    {
-                        invalidate = true;
-                        break;
-                    }
-
-                    before = bit != 0;
-                }
-
-                if (invalidate) continue;
-
-                fall++;
+                memo[i] = new Dictionary<string, Modular>();
             }
 
-            Modular[][] dp = new Modular[H + 1][];
-            dp[0] = new Modular[W];
-            dp[0][0] = 1;
-            for (int i = 1; i < W; i++)
+            Console.WriteLine((int) dfs(0, "TTT"));
+        }
+
+        public Modular dfs(int cur, string last)
+        {
+            if (memo[cur].ContainsKey(last))
             {
-                dp[0][i] = 0;
+                return memo[cur][last];
             }
 
-            for (int i = 1; i <= H; i++)
+            if (cur == N) return 1;
+            var ret = new Modular(0);
+            foreach (char c in ACGT)
             {
-                dp[i] = new Modular[W];
-                for (int j = 0; j < W; j++)
+                if (Ok(last + c))
                 {
-                    dp[i][j] = 0;
-                }
-
-                for (int j = 0; j < W; j++)
-                {
-                    dp[i][j] = dp[i - 1][j];
-                    if (j > 0)
-                    {
-                        dp[i][j] = dp[i][j] + dp[i - 1][j - 1];
-                    }
-
-                    if (j < W - 1)
-                    {
-                        dp[i][j] = dp[i][j] + dp[i - 1][j + 1];
-                    }
+                    ret = ret + dfs(cur + 1, last.Substring(1, 2) + c);
                 }
             }
 
-            Console.WriteLine((int)dp[H][K-1]);
+            memo[cur].Add(last, ret);
+            return ret;
+        }
+
+        bool Ok(string last)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                var t = last.ToList();
+                if (i >= 1)
+                {
+                    var tmp = t[i - 1];
+                    t[i - 1] = t[i];
+                    t[i] = tmp;
+                }
+
+                int count = 0;
+                foreach (char c in t)
+                {
+                    if (count == 0 && c == 'A')
+                    {
+                        count++;
+                        continue;
+                    }
+
+                    if (count == 1 && c == 'G')
+                    {
+                        count++;
+                        continue;
+                    }
+
+                    if (count == 2 && c == 'C') return false;
+                    count = c == 'A' ? 1 : 0;
+                }
+            }
+
+            return true;
         }
     }
 

@@ -116,18 +116,19 @@ namespace ABC086D
             }
         }
 
-        public static void @in<T>(long rowNumber, out List<T> l1, out List<T> l2, out List<T> l3, out List<T> l4)
+        public static void @in<T, U, V, W>(long rowNumber, out List<T> l1, out List<U> l2, out List<V> l3,
+            out List<W> l4)
         {
             l1 = new List<T>();
-            l2 = new List<T>();
-            l3 = new List<T>();
-            l4 = new List<T>();
-            foreach (List<T> l in String(rowNumber).Select(Convert<List<T>>()))
+            l2 = new List<U>();
+            l3 = new List<V>();
+            l4 = new List<W>();
+            foreach (List<string> l in String(rowNumber).Select(_ => _.Split(' ').ToList()))
             {
-                l1.Add(l[0]);
-                l2.Add(l[1]);
-                l3.Add(l[2]);
-                l4.Add(l[3]);
+                l1.Add(Convert<T>()(l[0]));
+                l2.Add(Convert<U>()(l[1]));
+                l3.Add(Convert<V>()(l[2]));
+                l4.Add(Convert<W>()(l[3]));
             }
         }
 

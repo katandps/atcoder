@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using static ABC113C.Input;
+using static Asakatsu20200319C.Input;
 
-namespace ABC113C
+namespace Asakatsu20200319C
 {
     static class Input
     {
@@ -90,44 +90,46 @@ namespace ABC113C
         /// </summary>
         public static void @in<T>(long rowNumber, out List<T> l) => l = String(rowNumber).Select(Convert<T>()).ToList();
 
-        public static void @in<T>(long rowNumber, out List<T> l1, out List<T> l2)
+        public static void @in<T1, T2>(long rowNumber, out List<T1> l1, out List<T2> l2)
         {
-            l1 = new List<T>();
-            l2 = new List<T>();
-            foreach (List<T> l in String(rowNumber).Select(Convert<List<T>>()))
+            l1 = new List<T1>();
+            l2 = new List<T2>();
+            foreach (List<string> l in String(rowNumber).Select(Convert<List<string>>()))
             {
-                l1.Add(l[0]);
-                l2.Add(l[1]);
+                l1.Add(Convert<T1>()(l[0]));
+                l2.Add(Convert<T2>()(l[1]));
             }
         }
 
-        public static void @in<T>(long rowNumber, out List<T> l1, out List<T> l2, out List<T> l3)
+        public static void @in<T1, T2, T3>(long rowNumber, out List<T1> l1, out List<T2> l2, out List<T3> l3)
         {
-            l1 = new List<T>();
-            l2 = new List<T>();
-            l3 = new List<T>();
-            foreach (List<T> l in String(rowNumber).Select(Convert<List<T>>()))
+            l1 = new List<T1>();
+            l2 = new List<T2>();
+            l3 = new List<T3>();
+            foreach (List<string> l in String(rowNumber).Select(Convert<List<string>>()))
             {
-                l1.Add(l[0]);
-                l2.Add(l[1]);
-                l3.Add(l[2]);
+                l1.Add(Convert<T1>()(l[0]));
+                l2.Add(Convert<T2>()(l[1]));
+                l3.Add(Convert<T3>()(l[2]));
             }
         }
 
-        public static void @in<T>(long rowNumber, out List<T> l1, out List<T> l2, out List<T> l3, out List<T> l4)
+        public static void @in<T1, T2, T3, T4>(long rowNumber, out List<T1> l1, out List<T2> l2, out List<T3> l3,
+            out List<T4> l4)
         {
-            l1 = new List<T>();
-            l2 = new List<T>();
-            l3 = new List<T>();
-            l4 = new List<T>();
-            foreach (List<T> l in String(rowNumber).Select(Convert<List<T>>()))
+            l1 = new List<T1>();
+            l2 = new List<T2>();
+            l3 = new List<T3>();
+            l4 = new List<T4>();
+            foreach (List<string> l in String(rowNumber).Select(Convert<List<string>>()))
             {
-                l1.Add(l[0]);
-                l2.Add(l[1]);
-                l3.Add(l[2]);
-                l4.Add(l[3]);
+                l1.Add(Convert<T1>()(l[0]));
+                l2.Add(Convert<T2>()(l[1]));
+                l3.Add(Convert<T3>()(l[2]));
+                l4.Add(Convert<T4>()(l[3]));
             }
         }
+
 
         /// <summary>
         /// 1行に書かれた複数の値の入力
@@ -158,70 +160,46 @@ namespace ABC113C
 
     class Solver
     {
-        private long N;
-        private long M;
-        private List<long> P;
-        private List<long> Y;
+        private int n;
+        private List<string> S;
 
         public void Solve()
         {
-            @in(out N, out M);
-            @in(M, out P, out Y);
+            @in(out n);
+            @in(n, out S);
 
-            Dictionary<long, List<Pair>> p = new Dictionary<long, List<Pair>>();
-            for (int i = 0; i < M; i++)
+            var count = new Dictionary<char, int>[n];
+            for (int i = 0; i < n; i++)
             {
-                if (!p.ContainsKey(P[i])) p.Add(P[i], new List<Pair>());
-                p[P[i]].Add(new Pair(P[i], Y[i], i));
-            }
-
-            Dictionary<long, string> ans = new Dictionary<long, string>();
-            foreach (KeyValuePair<long, List<Pair>> pair in p)
-            {
-                var cur = pair.Value.ToArray();
-                Array.Sort(cur, new PairComperator());
-                for (int i = 0; i < cur.Length; i++)
+                count[i] = new Dictionary<char, int>();
+                for (int j = 0; j < 26; j++)
                 {
-                    var c = cur[i];
-                    string s = String.Format("{0:000000}{1:000000}", c.A, i + 1);
-                    ans.Add(c.I, s);
+                    count[i].Add((char) (j + 'a'), 0);
                 }
             }
 
-            for (int i = 0; i < M; i++)
+            for (int i = 0; i < n; i++)
             {
-                Console.WriteLine(ans[i]);
+                var c = count[i];
+                for (int j = 0; j < S[i].Length; j++)
+                {
+                    c[S[i][j]]++;
+                }
             }
-        }
-    }
 
-    /// <summary>
-    /// 値のペア ソート/出力用のindexも持つ
-    /// </summary>
-    class Pair
-    {
-        public long A;
-        public long B;
-        public long I;
+            string ans = "";
+            for (int i = 0; i < 26; i++)
+            {
+                int min = 1000;
+                for (int j = 0; j < n; j++)
+                {
+                    min = Math.Min(min, count[j][(char) (i + 'a')]);
+                }
 
-        public Pair(long a, long b, long i)
-        {
-            A = a;
-            B = b;
-            I = i;
-        }
+                ans += new string(Enumerable.Repeat((char) ('a' + i), min).ToArray());
+            }
 
-        public override string ToString()
-        {
-            return "i: " + I + "  A: " + A + "  B: " + B;
-        }
-    }
-
-    class PairComperator : IComparer<Pair>
-    {
-        int IComparer<Pair>.Compare(Pair a, Pair b)
-        {
-            return (int) a.B - (int) b.B;
+            Console.WriteLine(ans);
         }
     }
 }
