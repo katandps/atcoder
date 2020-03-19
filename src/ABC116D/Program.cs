@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -167,58 +168,179 @@ namespace ABC116D
         {
             @in(out N, out K);
             @in(N, out t, out d);
-            List<Pair> first = new List<Pair>();
-            List<Pair> second = new List<Pair>();
-            HashSet<long> seen = new HashSet<long>();
+
+            Pair[] sushi = new Pair[N];
             for (int i = 0; i < N; i++)
             {
-                if (seen.Contains(t[i]))
-                {
-                    second.Add(new Pair(t[i], d[i], i));
-                }
-                else
-                {
-                    first.Add(new Pair(t[i], d[i], i));
-                    seen.Add(t[i]);
-                }
+                sushi[i] = new Pair(t[i], d[i], i);
             }
 
-            first.Sort(new PairComperator());
-            second.Sort(new PairComperator());
-
+            Array.Sort(sushi, new PairComperator());
+            //現在のもの
+            var s = new PriorityQueue<Pair>(new PairComperator());
+            //残り
+            var k = new PriorityQueue<Pair>(new PairComperator(), false);
             long sum = 0;
+            Dictionary<long, int> count = new Dictionary<long, int>();
             for (int i = 0; i < K; i++)
             {
-                if (i < first.Count) sum += first[i].B;
-                else sum += second[i - first.Count].B;
+                sum += sushi[i].B;
+                if (!count.ContainsKey(sushi[i].A)) count.Add(sushi[i].A, 0);
+                count[sushi[i].A]++;
+                s.Enqueue(sushi[i]);
             }
 
-            long ans = sum + Math.Min(first.Count, K) * Math.Min(first.Count, K);
+            long kinds = count.Count;
 
-            int fIndex = (int) Math.Min(first.Count, K) - 1;
-            int sIndex = 0;
-            //K種類から1種類の寿司を食べる
-            for (long i = K; i >= 0; i--)
+            for (long i = K; i < N; i++)
             {
-                //寿司がたりない
-                if (first.Count < i)
+                k.Enqueue(sushi[i]);
+                if (!count.ContainsKey(sushi[i].A)) count.Add(sushi[i].A, 0);
+            }
+
+            long ans = sum + kinds * kinds;
+            while (k.Count > 0 && s.Count > 0)
+            {
+                //2個以上持ってるのを外す
+                var couldnt = true;
+                while (s.Count > 0)
                 {
-                    continue;
+                    var o = s.Dequeue();
+                    if (count[o.A] > 1)
+                    {
+                        count[o.A]--;
+                        sum -= o.B;
+                        couldnt = false;
+                        break;
+                    }
                 }
 
-                sum = sum - first[fIndex].B + second[sIndex].B;
-                ans = Math.Max(ans, sum + (i - 1) * (i - 1));
-                sIndex++;
-                fIndex--;
-                if (sIndex >= second.Count || fIndex < 0)
+                if (couldnt) break;
+
+                //持ってないのを入れる
+                couldnt = true;
+                while (k.Count > 0)
                 {
+                    var c = k.Dequeue();
+                    if (count[c.A] > 0) continue;
+
+                    count[c.A]++;
+                    sum += c.B;
+                    kinds++;
+                    couldnt = false;
                     break;
                 }
+
+                if (couldnt) break;
+                ans = Math.Max(ans, sum + kinds * kinds);
             }
 
             Console.WriteLine(ans);
         }
     }
+
+    public class PriorityQueue<T> : IEnumerable<T>
+    {
+        private readonly List<T> data = new List<T>();
+        private readonly IComparer<T> comparer;
+        private readonly bool isDescending;
+
+        public PriorityQueue(IComparer<T> comparer, bool isDescending = true)
+        {
+            this.comparer = comparer;
+            this.isDescending = isDescending;
+        }
+
+        public PriorityQueue(Comparison<T> comparison, bool isDescending = true)
+            : this(Comparer<T>.Create(comparison), isDescending)
+        {
+        }
+
+        public PriorityQueue(bool isDescending = true)
+            : this(Comparer<T>.Default, isDescending)
+        {
+        }
+
+        public void Enqueue(T item)
+        {
+            data.Add(item);
+            var childIndex = data.Count - 1;
+            while (childIndex > 0)
+            {
+                var parentIndex = (childIndex - 1) / 2;
+                if (Compare(data[childIndex], data[parentIndex]) >= 0) break;
+                Swap(childIndex, parentIndex);
+                childIndex = parentIndex;
+            }
+        }
+
+        public T Dequeue()
+        {
+            if (Count < 1)
+            {
+                throw new Exception("キューに値が入っていません");
+            }
+
+            var lastIndex = data.Count - 1;
+            var firstItem = data[0];
+            data[0] = data[lastIndex];
+            data.RemoveAt(lastIndex);
+            lastIndex--;
+
+            var parentIndex = 0;
+            while (true)
+            {
+                var childIndex = parentIndex * 2 + 1;
+                if (childIndex > lastIndex)
+                {
+                    break;
+                }
+
+                var rightChild = childIndex + 1;
+                if (rightChild <= lastIndex && Compare(data[rightChild], data[childIndex]) < 0)
+                {
+                    childIndex = rightChild;
+                }
+
+                if (Compare(data[parentIndex], data[childIndex]) <= 0)
+                {
+                    break;
+                }
+
+                Swap(parentIndex, childIndex);
+                parentIndex = childIndex;
+            }
+
+            return firstItem;
+        }
+
+        public T Peek()
+        {
+            return data[0];
+        }
+
+        private void Swap(int a, int b)
+        {
+            var tmp = data[a];
+            data[a] = data[b];
+            data[b] = tmp;
+        }
+
+        private int Compare(T a, T b)
+        {
+            return isDescending ? comparer.Compare(b, a) : comparer.Compare(a, b);
+        }
+
+        public int Count => data.Count;
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return data.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    }
+
 
     /// <summary>
     /// 値のペア ソート/出力用のindexも持つ
