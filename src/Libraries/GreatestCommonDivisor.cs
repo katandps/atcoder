@@ -1,5 +1,8 @@
 namespace Libraries
 {
+    /// <summary>
+    /// 最大公約数
+    /// </summary>
     public class GreatestCommonDivisor
     {
         public static long Gcd(long a, long b)
