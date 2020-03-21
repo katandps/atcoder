@@ -92,44 +92,28 @@ namespace Libraries
         /// </summary>
         public static void Cin<T>(long n, out List<T> l) => l = String(n).Select(Convert<T>()).ToList();
 
-        public static void Cin<T1, T2>(long n, out List<T1> l1, out List<T2> l2)
+        public static void Cin<T1, T2>(long n, out T1[] l1, out T2[] l2)
         {
-            l1 = new List<T1>();
-            l2 = new List<T2>();
-            foreach (List<string> l in String(n).Select(Convert<List<string>>()))
-            {
-                l1.Add(Convert<T1>(l[0]));
-                l2.Add(Convert<T2>(l[1]));
-            }
+            l1 = new T1[n];
+            l2 = new T2[n];
+            for (int i = 0; i < n; i++) Cin(out l1[i], out l2[i]);
         }
 
-        public static void Cin<T1, T2, T3>(long n, out List<T1> l1, out List<T2> l2, out List<T3> l3)
+        public static void Cin<T1, T2, T3>(long n, out T1[] l1, out T2[] l2, out T3[] l3)
         {
-            l1 = new List<T1>();
-            l2 = new List<T2>();
-            l3 = new List<T3>();
-            foreach (List<string> l in String(n).Select(Convert<List<string>>()))
-            {
-                l1.Add(Convert<T1>(l[0]));
-                l2.Add(Convert<T2>(l[1]));
-                l3.Add(Convert<T3>(l[2]));
-            }
+            l1 = new T1[n];
+            l2 = new T2[n];
+            l3 = new T3[n];
+            for (int i = 0; i < n; i++) Cin(out l1[i], out l2[i], out l3[i]);
         }
 
-        public static void Cin<T1, T2, T3, T4>(long n, out List<T1> l1, out List<T2> l2, out List<T3> l3,
-            out List<T4> l4)
+        public static void Cin<T1, T2, T3, T4>(long n, out T1[] l1, out T2[] l2, out T3[] l3, out T4[] l4)
         {
-            l1 = new List<T1>();
-            l2 = new List<T2>();
-            l3 = new List<T3>();
-            l4 = new List<T4>();
-            foreach (List<string> l in String(n).Select(Convert<List<string>>()))
-            {
-                l1.Add(Convert<T1>(l[0]));
-                l2.Add(Convert<T2>(l[1]));
-                l3.Add(Convert<T3>(l[2]));
-                l4.Add(Convert<T4>(l[3]));
-            }
+            l1 = new T1[n];
+            l2 = new T2[n];
+            l3 = new T3[n];
+            l4 = new T4[n];
+            for (int i = 0; i < n; i++) Cin(out l1[i], out l2[i], out l3[i], out l4[i]);
         }
 
         /// <summary>
