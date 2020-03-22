@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using static Libraries.Input;
+using static Asakatsu20200323D.Input;
 
-namespace Libraries
+namespace Asakatsu20200323D
 {
     static class Input
     {
@@ -16,7 +18,7 @@ namespace Libraries
             if (t == typeof(int)) return _ => (T) (object) int.Parse(_);
             if (t == typeof(long)) return _ => (T) (object) long.Parse(_);
             if (t == typeof(double)) return _ => (T) (object) double.Parse(_);
-            if (t == typeof(string[])) return _ => (T) (object) _.Split(' ');
+            if (t == typeof(string[])) return _ => (T) (object) Cast<string>()(_);
             if (t == typeof(int[])) return _ => (T) (object) Cast<int>()(_);
             if (t == typeof(long[])) return _ => (T) (object) Cast<long>()(_);
             if (t == typeof(double[])) return _ => (T) (object) Cast<double>()(_);
@@ -128,8 +130,69 @@ namespace Libraries
 
     class Solver
     {
+        private long N;
+        private long M;
+        private long[] A;
+        private long[] B;
+        private long[] C;
+
         public void Solve()
         {
+            Cin(out N, out M);
+            Cin(out A);
+            Cin(M, out B, out C);
+
+            var sd = new SortedDictionary<long, long>(new SortRule());
+            for (int i = 0; i < M; i++)
+            {
+                if (!sd.ContainsKey(C[i])) sd.Add(C[i], 0);
+                sd[C[i]] += B[i];
+            }
+
+            Array.Sort(A);
+            Array.Reverse(A);
+
+            long rest = N;
+            long sum = 0;
+            long index = 0;
+
+            foreach (var v in sd)
+            {
+                if (rest <= 0) break;
+                while (rest > 0 && A[index] > v.Key)
+                {
+                    sum += A[index];
+                    rest--;
+                    index++;
+                }
+
+                if (rest > v.Value)
+                {
+                    rest -= v.Value;
+                    sum += v.Key * v.Value;
+                    continue;
+                }
+
+                sum += v.Key * rest;
+                rest = 0;
+            }
+
+            while (rest > 0)
+            {
+                sum += A[index];
+                rest--;
+                index++;
+            }
+
+            Console.WriteLine(sum);
+        }
+    }
+
+    public sealed class SortRule : IComparer<long>
+    {
+        public int Compare(long x, long y)
+        {
+            return (int) y - (int) x;
         }
     }
 }

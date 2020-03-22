@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using static Libraries.Input;
+using static Asakatsu20200323E.Input;
 
-namespace Libraries
+namespace Asakatsu20200323E
 {
     static class Input
     {
@@ -16,7 +17,7 @@ namespace Libraries
             if (t == typeof(int)) return _ => (T) (object) int.Parse(_);
             if (t == typeof(long)) return _ => (T) (object) long.Parse(_);
             if (t == typeof(double)) return _ => (T) (object) double.Parse(_);
-            if (t == typeof(string[])) return _ => (T) (object) _.Split(' ');
+            if (t == typeof(string[])) return _ => (T) (object) Cast<string>()(_);
             if (t == typeof(int[])) return _ => (T) (object) Cast<int>()(_);
             if (t == typeof(long[])) return _ => (T) (object) Cast<long>()(_);
             if (t == typeof(double[])) return _ => (T) (object) Cast<double>()(_);
@@ -34,14 +35,14 @@ namespace Libraries
 
         public static void Cin<T1, T2>(out T1 a1, out T2 a2)
         {
-            var v = String().Split(' ');
+            var v = Convert<string[]>(String());
             set(v[0], out a1);
             set(v[1], out a2);
         }
 
         public static void Cin<T1, T2, T3>(out T1 a1, out T2 a2, out T3 a3)
         {
-            var v = String().Split(' ');
+            var v = Convert<string[]>(String());
             set(v[0], out a1);
             set(v[1], out a2);
             set(v[2], out a3);
@@ -49,7 +50,7 @@ namespace Libraries
 
         public static void Cin<T1, T2, T3, T4>(out T1 a1, out T2 a2, out T3 a3, out T4 a4)
         {
-            var v = String().Split(' ');
+            var v = Convert<string[]>(String());
             set(v[0], out a1);
             set(v[1], out a2);
             set(v[2], out a3);
@@ -58,7 +59,7 @@ namespace Libraries
 
         public static void Cin<T1, T2, T3, T4, T5>(out T1 a1, out T2 a2, out T3 a3, out T4 a4, out T5 a5)
         {
-            var v = String().Split(' ');
+            var v = Convert<string[]>(String());
             set(v[0], out a1);
             set(v[1], out a2);
             set(v[2], out a3);
@@ -68,7 +69,7 @@ namespace Libraries
 
         public static void Cin<T1, T2, T3, T4, T5, T6>(out T1 a1, out T2 a2, out T3 a3, out T4 a4, out T5 a5, out T6 a6)
         {
-            var v = String().Split(' ');
+            var v = Convert<string[]>(String());
             set(v[0], out a1);
             set(v[1], out a2);
             set(v[2], out a3);
@@ -128,8 +129,50 @@ namespace Libraries
 
     class Solver
     {
+        private long N;
+        private long[] A;
+        private long[] B;
+
         public void Solve()
         {
+            Cin(out N);
+            Cin(N, out A, out B);
+
+            List<long> down = new List<long>();
+            List<long> up = new List<long>();
+            for (int j = 0; j < N; j++)
+            {
+                up.Add(A[j]);
+                down.Add(B[j]);
+            }
+
+            up.Sort();
+            down.Sort();
+
+            long cnt = 0;
+            long ans = 0;
+            int upIndex = 0;
+            int downIndex = 0;
+            //long[] k = new long[10000001];
+            for (int i = 0; i < 10000001; i++)
+            {
+                while (upIndex < N && up[upIndex] <= i)
+                {
+                    upIndex++;
+                    cnt++;
+                }
+
+                while (downIndex < N - 1 && down[downIndex] < i)
+                {
+                    downIndex++;
+                    cnt--;
+                }
+
+                //k[i] = cnt;
+                ans = Math.Max(ans, cnt);
+            }
+
+            Console.WriteLine(ans);
         }
     }
 }
