@@ -46,4 +46,52 @@ namespace Libraries
             }
         }
     }
+
+    public class StringPermutation
+    {
+        public StringPermutation(string s)
+        {
+            Permutate(s);
+        }
+
+        public List<string> permutation = new List<string>();
+        HashSet<string> memo = new HashSet<string>();
+
+        private void Permutate(string rest, string current = null)
+        {
+            if (current == null)
+            {
+                current = "";
+            }
+
+            foreach (char c in rest)
+            {
+                var next = "";
+                foreach (char v in current)
+                {
+                    next += v;
+                }
+
+                next += c;
+
+                if (memo.Contains(next)) continue;
+                memo.Add(next);
+
+                if (rest.Length == 1)
+                {
+                    permutation.Add(next);
+                    continue;
+                }
+
+                var nextRest = new List<char>();
+                foreach (char r in rest)
+                {
+                    if (r.Equals(r)) continue;
+                    nextRest.Add(r);
+                }
+
+                Permutate(new string(nextRest.ToArray()), next);
+            }
+        }
+    }
 }
