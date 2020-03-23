@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using static Libraries.Input;
+using static Asakatsu20200324E.Input;
 
-namespace Libraries
+namespace Asakatsu20200324E
 {
     static class Input
     {
@@ -129,8 +129,94 @@ namespace Libraries
 
     class Solver
     {
+        private long N;
+        private long M;
+        private long[] K;
+        private long[][] L;
+
         public void Solve()
         {
+            Cin(out N, out M);
+            UnionFind uf = new UnionFind((int) N + (int) M + 10);
+            K = new long[N];
+            L = new long[N][];
+            for (int i = 0; i < N; i++)
+            {
+                long[] s = Console.ReadLine().Split(' ').Select(long.Parse).ToArray();
+                K[i] = s[0];
+                L[i] = new long[K[i]];
+                for (int j = 0; j < K[i]; j++)
+                {
+                    L[i][j] = s[j + 1];
+                    uf.Unite(i, (int) N + (int) s[j + 1] + 10);
+                }
+            }
+
+            int root = uf.Root(0);
+            for (int i = 1; i < N; i++)
+            {
+                if (uf.Root(i) != root)
+                {
+                    Console.WriteLine("NO");
+                    return;
+                }
+            }
+
+            Console.WriteLine("YES");
+        }
+    }
+
+    public class UnionFind
+    {
+        private readonly int[] par;
+        private readonly int[] rank;
+
+        public UnionFind(int maxN)
+        {
+            par = new int[maxN + 1];
+            rank = new int[maxN + 1];
+            Init(maxN);
+        }
+
+        private void Init(int n)
+        {
+            for (var i = 1; i <= n; i++)
+            {
+                par[i] = i;
+                rank[i] = 0;
+            }
+        }
+
+        public int Root(int x)
+        {
+            if (par[x] == x) return x;
+            return par[x] = Root(par[x]);
+        }
+
+        public int Rank(int x)
+        {
+            return rank[x];
+        }
+
+        public bool Same(int x, int y)
+        {
+            return Root(x) == Root(y);
+        }
+
+        public void Unite(int x, int y)
+        {
+            x = Root(x);
+            y = Root(y);
+            if (x == y) return;
+            if (rank[x] < rank[y])
+            {
+                var tmp = x;
+                x = y;
+                y = tmp;
+            }
+
+            if (rank[x] == rank[y]) ++rank[x];
+            par[x] = y;
         }
     }
 }

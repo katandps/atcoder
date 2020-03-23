@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using static Libraries.Input;
+using static Asakatsu20200324B.Input;
 
-namespace Libraries
+namespace Asakatsu20200324B
 {
     static class Input
     {
@@ -129,8 +129,38 @@ namespace Libraries
 
     class Solver
     {
+        private int N;
+        private int M;
+        private string[] s;
+        private string[] t;
+
         public void Solve()
         {
+            Cin(out N);
+            Cin(N, out s);
+            Cin(out M);
+            Cin(M, out t);
+
+            int ans = 0;
+            Dictionary<string, int> count = new Dictionary<string, int>();
+            for (int i = 0; i < N; i++)
+            {
+                if (!count.ContainsKey(s[i])) count.Add(s[i], 0);
+                count[s[i]]++;
+            }
+            
+            for (int i = 0; i < M; i++)
+            {
+                if (!count.ContainsKey(t[i])) count.Add(t[i], 0);
+                count[t[i]]--;
+            }
+
+            foreach (var i in count)
+            {
+                ans = Math.Max(ans, i.Value);
+            }
+
+            Console.WriteLine(ans);
         }
     }
 }

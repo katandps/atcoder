@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using static Libraries.Input;
+using static Asakatsu20200324D.Input;
 
-namespace Libraries
+namespace Asakatsu20200324D
 {
     static class Input
     {
@@ -129,8 +129,28 @@ namespace Libraries
 
     class Solver
     {
+        private long N;
+        private long K;
+
         public void Solve()
         {
+            Cin(out N, out K);
+
+            if (K == 0)
+            {
+                Console.WriteLine(N * N);
+                return;
+            }
+
+            long ans = 0;
+            //bを固定する
+            for (long b = K + 1; b <= N; b++)
+            {
+                ans += N / b * (b - K); // あまりが0からb-1まで取れるとき
+                ans += Math.Max(0, N % b - K + 1);
+            }
+
+            Console.WriteLine(ans);
         }
     }
 }

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using static Libraries.Input;
+using static Asakatsu20200324C.Input;
 
-namespace Libraries
+namespace Asakatsu20200324C
 {
     static class Input
     {
@@ -129,8 +129,22 @@ namespace Libraries
 
     class Solver
     {
+        private long N;
+        private long K;
+        private long[] A;
+
         public void Solve()
         {
+            Cin(out N, out K);
+            Cin(out A);
+
+            if (K == 2)
+            {
+                Console.WriteLine(N - 1);
+                return;
+            }
+
+            Console.WriteLine((N - 1 + K - 2) / (K - 1));
         }
     }
 }

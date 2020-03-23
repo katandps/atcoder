@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using static Libraries.Input;
+using static Asakatsu20200324A.Input;
 
-namespace Libraries
+namespace Asakatsu20200324A
 {
     static class Input
     {
@@ -129,8 +129,28 @@ namespace Libraries
 
     class Solver
     {
+        private long N;
+        private long[] A;
         public void Solve()
         {
+            Cin(out N);
+            Cin(out A);
+
+            long before = -1;
+            long ans = 0;
+            for (int i = 0; i < N; i++)
+            {
+                if (A[i] == before)
+                {
+                    ans++;
+                    before = -1;
+                    continue;
+                }
+
+                before = A[i];
+            }
+
+            Console.WriteLine(ans);
         }
     }
 }
