@@ -85,5 +85,10 @@ namespace Libraries
         {
             return (int) a.V;
         }
+
+        public override string ToString()
+        {
+            return V.ToString();
+        }
     }
 }

@@ -1,109 +1,253 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using static ABC110D.Input;
 
 namespace ABC110D
 {
-    internal class Program
+    static class Input
+    {
+        private static Func<string, T[]> Cast<T>() => _ => _.Split(' ').Select(Convert<T>()).ToArray();
+
+        private static Func<string, T> Convert<T>()
+        {
+            Type t = typeof(T);
+            if (t == typeof(string)) return _ => (T) (object) _;
+            if (t == typeof(int)) return _ => (T) (object) int.Parse(_);
+            if (t == typeof(long)) return _ => (T) (object) long.Parse(_);
+            if (t == typeof(double)) return _ => (T) (object) double.Parse(_);
+            if (t == typeof(string[])) return _ => (T) (object) _.Split(' ');
+            if (t == typeof(int[])) return _ => (T) (object) Cast<int>()(_);
+            if (t == typeof(long[])) return _ => (T) (object) Cast<long>()(_);
+            if (t == typeof(double[])) return _ => (T) (object) Cast<double>()(_);
+
+            throw new NotSupportedException(t + "is not supported.");
+        }
+
+        private static T Convert<T>(string s) => Convert<T>()(s);
+
+        private static string String() => Console.ReadLine();
+
+        private static string[] String(long rowNumber) => new bool[rowNumber].Select(_ => String()).ToArray();
+
+        public static void Cin<T>(out T a) => a = Convert<T>(String());
+
+        public static void Cin<T1, T2>(out T1 a1, out T2 a2)
+        {
+            var v = String().Split(' ');
+            set(v[0], out a1);
+            set(v[1], out a2);
+        }
+
+        public static void Cin<T1, T2, T3>(out T1 a1, out T2 a2, out T3 a3)
+        {
+            var v = String().Split(' ');
+            set(v[0], out a1);
+            set(v[1], out a2);
+            set(v[2], out a3);
+        }
+
+        public static void Cin<T1, T2, T3, T4>(out T1 a1, out T2 a2, out T3 a3, out T4 a4)
+        {
+            var v = String().Split(' ');
+            set(v[0], out a1);
+            set(v[1], out a2);
+            set(v[2], out a3);
+            set(v[3], out a4);
+        }
+
+        public static void Cin<T1, T2, T3, T4, T5>(out T1 a1, out T2 a2, out T3 a3, out T4 a4, out T5 a5)
+        {
+            var v = String().Split(' ');
+            set(v[0], out a1);
+            set(v[1], out a2);
+            set(v[2], out a3);
+            set(v[3], out a4);
+            set(v[4], out a5);
+        }
+
+        public static void Cin<T1, T2, T3, T4, T5, T6>(out T1 a1, out T2 a2, out T3 a3, out T4 a4, out T5 a5, out T6 a6)
+        {
+            var v = String().Split(' ');
+            set(v[0], out a1);
+            set(v[1], out a2);
+            set(v[2], out a3);
+            set(v[3], out a4);
+            set(v[4], out a5);
+            set(v[5], out a6);
+        }
+
+        private static void set<T1>(string s, out T1 o1) => o1 = Convert<T1>(s);
+
+        public static void Cin<T>(long n, out T[] l) => l = String(n).Select(Convert<T>()).ToArray();
+
+        public static void Cin<T1, T2>(long n, out T1[] l1, out T2[] l2)
+        {
+            l1 = new T1[n];
+            l2 = new T2[n];
+            for (int i = 0; i < n; i++) Cin(out l1[i], out l2[i]);
+        }
+
+        public static void Cin<T1, T2, T3>(long n, out T1[] l1, out T2[] l2, out T3[] l3)
+        {
+            l1 = new T1[n];
+            l2 = new T2[n];
+            l3 = new T3[n];
+            for (int i = 0; i < n; i++) Cin(out l1[i], out l2[i], out l3[i]);
+        }
+
+        public static void Cin<T1, T2, T3, T4>(long n, out T1[] l1, out T2[] l2, out T3[] l3, out T4[] l4)
+        {
+            l1 = new T1[n];
+            l2 = new T2[n];
+            l3 = new T3[n];
+            l4 = new T4[n];
+            for (int i = 0; i < n; i++) Cin(out l1[i], out l2[i], out l3[i], out l4[i]);
+        }
+
+        public static void Cin<T>(out T[] a) => a = Convert<T[]>(String());
+
+        public static void Cin<T>(long h, out T[][] map) => map = String(h).Select(Convert<T[]>()).ToArray();
+    }
+
+    class Program
     {
         public static void Main(string[] args)
         {
-            var longs = Input.LongArray();
-            var N = longs[0];
-            var M = longs[1];
+            StreamWriter streamWriter = new StreamWriter(Console.OpenStandardOutput()) {AutoFlush = false};
+            Console.SetOut(streamWriter);
+            new Solver().Solve();
+            Console.Out.Flush();
+        }
 
-            var MM = M;
-            var factorization = new int[100000];
-            for (var i = 2; i < 100000; i++)
+        public static void Debug()
+        {
+            new Solver().Solve();
+        }
+    }
+
+    class Solver
+    {
+        private int N, M;
+
+        public void Solve()
+        {
+            Cin(out N, out M);
+
+            Dictionary<int, int> divisors = new Dictionary<int, int>();
+            var t = M;
+            var j = 2;
+            while (t > 1)
             {
-                while (MM % i == 0)
+                if (t % j == 0)
                 {
-                    factorization[i]++;
-                    MM /= i;
+                    if (!divisors.ContainsKey(j)) divisors.Add(j, 0);
+                    divisors[j]++;
+                    t /= j;
+                    continue;
                 }
 
-                if (MM == 1) break;
+                j++;
             }
 
-            var list = new List<int>();
-            for (var i = 2; i < 100000; i++)
+            Modular ans = 1;
+            foreach (KeyValuePair<int, int> d in divisors)
             {
-                if (factorization[i] == 0) continue;
-                list.Add(factorization[i]);
-            }
-
-            var a = list.ToArray();
-            var f = a.Sum();
-            long BIG = 1000000007;
-            long ans = 0;
-            var patterns = N;
-            long beforeFact = 0;
-            var facto = new Factorial();
-            for (var i = 1; i <= N; i++)
-            {
-                long fact = 1;
-                for (var j = 0; j < a.Length; j++)
-                {
-                    var pow = Convert.ToInt64(Math.Pow(i, a[j])) % BIG;
-                    fact = fact * pow % BIG - facto.Get(a[j]) % BIG;
-                }
-
-                ans += patterns * fact % BIG;
-                patterns = patterns * (N - i) % BIG;
+                var v = Modular.Fac(d.Value + N - 1) / Modular.Fac(N - 1) / Modular.Fac(d.Value);
+                //Console.WriteLine(v);
+                ans = ans * v;
             }
 
             Console.WriteLine(ans);
         }
     }
 
-    internal class Factorial
+    class Modular
     {
-        private const long P = 1000000007;
-        private readonly long[] fact;
+        public static int M = 1000000007;
+        private long V;
 
-        public Factorial()
+        public Modular(long v)
         {
-            fact = new long[1000];
-            fact[0] = 1;
-            for (var i = 1; i < 1000; i++) fact[i] = fact[i - 1] * i % P;
+            V = v;
         }
 
-        public long Get(int n)
+        public static implicit operator Modular(long a)
         {
-            return fact[n];
-        }
-    }
-
-    internal static class Input
-    {
-        public static string String()
-        {
-            return Console.ReadLine();
+            var m = a % M;
+            return new Modular(m < 0 ? m + M : m);
         }
 
-        public static int Int()
+        public static Modular operator +(Modular a, Modular b)
         {
-            return int.Parse(Console.ReadLine());
+            return a.V + b.V;
         }
 
-        public static int[] IntArray()
+        public static Modular operator -(Modular a, Modular b)
         {
-            return Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+            return a.V - b.V;
         }
 
-        public static long Long()
+        public static Modular operator *(Modular a, Modular b)
         {
-            return long.Parse(Console.ReadLine());
+            return a.V * b.V;
         }
 
-        public static long[] LongArray()
+        public static Modular Pow(Modular a, int n)
         {
-            return Console.ReadLine().Split(' ').Select(long.Parse).ToArray();
+            switch (n)
+            {
+                case 0:
+                    return 1;
+                case 1:
+                    return a;
+                default:
+                    var p = Pow(a, n / 2);
+                    return p * p * Pow(a, n % 2);
+            }
         }
 
-        public static double[] DoubleArray()
+        public static Modular operator /(Modular a, Modular b)
         {
-            return Console.ReadLine().Split(' ').Select(double.Parse).ToArray();
+            return a * Pow(b, M - 2);
+        }
+
+        private static readonly List<int> Facts = new List<int> {1};
+
+        public static Modular Fac(int n)
+        {
+            for (int i = Facts.Count; i <= n; ++i)
+            {
+                Facts.Add((int) (Math.BigMul(Facts.Last(), i) % M));
+            }
+
+            return Facts[n];
+        }
+
+        public static Modular Ncr(int n, int r)
+        {
+            if (n < r)
+            {
+                return 0;
+            }
+
+            if (n == r)
+            {
+                return 1;
+            }
+
+            return Fac(n) / (Fac(r) * Fac(n - r));
+        }
+
+        public static explicit operator int(Modular a)
+        {
+            return (int) a.V;
+        }
+
+        public override string ToString()
+        {
+            return V.ToString();
         }
     }
 }
